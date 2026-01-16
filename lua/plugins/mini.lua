@@ -37,6 +37,9 @@ return {
       silent = true,
     })
 
+    -- Tabs
+    require("mini.tabline").setup({})
+
     -- Indent scope: subtle, useful, not noisy
     require("mini.indentscope").setup({
       symbol = "│",
