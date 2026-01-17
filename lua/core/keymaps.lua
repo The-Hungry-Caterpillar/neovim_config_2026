@@ -51,7 +51,6 @@ vim.keymap.set("n", "<leader>bd", function()
   require("mini.bufremove").delete()
 end, { desc = "Delete buffer" })
 
-
 -- tmux navigator
 vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true })
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { silent = true })

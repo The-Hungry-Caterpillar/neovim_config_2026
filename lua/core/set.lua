@@ -1,6 +1,8 @@
 -- Line numbers, relative
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.wrap = true
+vim.opt.signcolumn = "no"
 
 -- Persistent undo
 vim.opt.undofile = true
@@ -15,8 +17,6 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 vim.g.r_indent_align_args = 0
-
-vim.opt.wrap = true
 
 -- Highlight search hits
 vim.opt.hlsearch = true
