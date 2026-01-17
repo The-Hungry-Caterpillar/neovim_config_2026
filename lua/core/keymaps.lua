@@ -50,6 +50,14 @@ vim.keymap.set("i", "<C-l>", function()
   end
 end, { desc = "Insert divider to 79 columns" })
 
+-- j and k move through wrapped lines, i.e. not logical lines
+vim.keymap.set("n", "j", function()
+  return vim.v.count == 0 and "gj" or "j"
+end, { expr = true, silent = true })
+vim.keymap.set("n", "k", function()
+  return vim.v.count == 0 and "gk" or "k"
+end, { expr = true, silent = true })
+
 -- Lazygit integration --------------------------------------------------------
 vim.keymap.set("n", "<leader>g", function()
   local buf = vim.api.nvim_create_buf(false, true)
@@ -81,13 +89,16 @@ vim.keymap.set("n", "<leader>g", function()
   })
 end, { desc = "LazyGit (float)" })
 
-
 -- mini.files ----------------------------------------------------------------
-
 -- opens file tree
+-- vim.keymap.set("n", "<leader>e", function()
+--   require("mini.files").open(vim.api.nvim_buf_get_name(0))
+-- end, { desc = "Explorer (mini.files)" })
 vim.keymap.set("n", "<leader>e", function()
-  require("mini.files").open(vim.api.nvim_buf_get_name(0))
+  local mf = require("mini.files")
+  mf.open(vim.fn.getcwd())
 end, { desc = "Explorer (mini.files)" })
+
 
 -- opens notes directory
 vim.keymap.set("n", "<leader>n", function()

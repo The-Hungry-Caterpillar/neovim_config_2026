@@ -9,12 +9,12 @@ return {
     end,
   },
 
-  { -- Devel
-		"gnualmalki/devel.nvim",
+  { -- Darkvoid
+		"darkvoid-theme/darkvoid.nvim",
 		lazy = false,
 		priority = 1000,
     config = function()
-      -- vim.cmd.colorscheme("devel")
+      vim.cmd.colorscheme("darkvoid")
     end, 
 	},
 
@@ -22,7 +22,7 @@ return {
     "Mofiqul/dracula.nvim",
     lazy = false,
     config = function()
-      vim.cmd.colorscheme("dracula-soft")
+      -- vim.cmd.colorscheme("dracula")
     end, 
   },
 

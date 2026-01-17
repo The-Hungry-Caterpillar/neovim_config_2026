@@ -1,8 +1,11 @@
 -- Line numbers, relative
 vim.opt.nu = true
 vim.opt.relativenumber = true
+
+-- Line wrapping
 vim.opt.wrap = true
-vim.opt.signcolumn = "no"
+vim.opt.linebreak = true
+vim.opt.breakindent = true
 
 -- Ignore case
 vim.opt.ignorecase = true
@@ -36,7 +39,3 @@ vim.opt.isfname:append("@-@")
 
 -- Fast
 vim.opt.updatetime = 50
-
--- Column at 80 characters
-vim.opt.colorcolumn = "80"
-vim.lazyredraw = true
