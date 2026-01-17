@@ -2,28 +2,11 @@ return {
   "echasnovski/mini.nvim",
   version = false, -- always use latest
   config = function()
-    require("mini.files").setup({
-      windows = {
-        preview = true,
-        width_focus = 30,
-        width_preview = 30,
-      },
-    })
-
     -- Commenting: gc / gcc, respects treesitter
     require("mini.comment").setup({
       options = {
         custom_commentstring = nil, -- let treesitter decide
       },
-    })
-
-    -- Autopairs: minimal, predictable
-    require("mini.pairs").setup({
-      modes = { insert = true, command = false, terminal = false },
-      skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-      skip_ts = { "string" },
-      skip_unbalanced = true,
-      markdown = true,
     })
 
     -- Statusline: clean, readable, no icons required
@@ -39,6 +22,36 @@ return {
 
     -- Tabs
     require("mini.tabline").setup()
+    
+    -- Icons
+    require("mini.icons").setup()
+
+    -- Autopairs --------------------------------------------------------------
+    require("mini.pairs").setup({
+      modes = { insert = true, command = false, terminal = false },
+      skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
+      skip_ts = { "string" },
+      skip_unbalanced = true,
+      markdown = true,
+    })
+
+    -- Mini-files--------------------------------------------------------------
+    require("mini.files").setup({
+      windows = {
+        preview = true,
+        width_focus = 30,
+        width_preview = 30,
+      },
+    })
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MiniFilesBufferCreate",
+      callback = function(args)
+        -- Buffer-local mapping for mini.files
+        vim.keymap.set("n", "=", function()
+          require("mini.files").synchronize()
+        end, { buffer = args.buf, desc = "Save (mini.files)" })
+      end,
+    })
 
     -- Mini fuzzy finder ---------------------------------------------------
     require("mini.pick").setup()

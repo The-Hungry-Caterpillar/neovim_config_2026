@@ -41,17 +41,65 @@ map("n", "<leader>d", ":<C-U>bprevious <bar> bdelete #<CR>")
 -- faster terminal exit
 map("t", "<Esc>", "<C-\\><C-n>")
 
--- mini.files
+-- Insert a header line with ctrl+l
+vim.keymap.set("i", "<C-l>", function()
+  local col = vim.fn.col('.')
+  local width = 79
+  if col < width then
+    vim.api.nvim_put({ string.rep("-", width - col + 1) }, "c", true, true)
+  end
+end, { desc = "Insert divider to 79 columns" })
+
+-- Lazygit integration --------------------------------------------------------
+vim.keymap.set("n", "<leader>g", function()
+  local buf = vim.api.nvim_create_buf(false, true)
+  local width = math.floor(vim.o.columns * 0.9)
+  local height = math.floor(vim.o.lines * 0.9)
+
+  local win = vim.api.nvim_open_win(buf, true, {
+    relative = "editor",
+    width = width,
+    height = height,
+    row = (vim.o.lines - height) / 2,
+    col = (vim.o.columns - width) / 2,
+    style = "minimal",
+    border = "rounded",
+  })
+
+  vim.fn.termopen("lazygit")
+  vim.cmd("startinsert")
+
+  -- close window when lazygit exits
+  vim.api.nvim_create_autocmd("TermClose", {
+    buffer = buf,
+    once = true,
+    callback = function()
+      if vim.api.nvim_win_is_valid(win) then
+        vim.api.nvim_win_close(win, true)
+      end
+    end,
+  })
+end, { desc = "LazyGit (float)" })
+
+
+-- mini.files ----------------------------------------------------------------
+
+-- opens file tree
 vim.keymap.set("n", "<leader>e", function()
   require("mini.files").open(vim.api.nvim_buf_get_name(0))
 end, { desc = "Explorer (mini.files)" })
 
--- mini.bufremove
+-- opens notes directory
+vim.keymap.set("n", "<leader>n", function()
+  require("mini.files").open(vim.env.HOME .. "/notes")
+end, { desc = "Notes Explorer" })
+
+-- mini.bufremove ------------------------------------------------------------
 vim.keymap.set("n", "<leader>bd", function()
   require("mini.bufremove").delete()
 end, { desc = "Delete buffer" })
 
--- tmux navigator
+-- tmux navigator ------------------------------------------------------------
 vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true })
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { silent = true })
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { silent = true })

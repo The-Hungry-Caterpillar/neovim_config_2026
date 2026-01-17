@@ -4,6 +4,10 @@ vim.opt.relativenumber = true
 vim.opt.wrap = true
 vim.opt.signcolumn = "no"
 
+-- Ignore case
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- Persistent undo
 vim.opt.undofile = true
 vim.opt.undodir = vim.fn.stdpath("state") .. "/undo"

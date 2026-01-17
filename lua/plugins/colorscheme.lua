@@ -9,19 +9,20 @@ return {
     end,
   },
 
-  { -- Darkvoid
-    'aliqyan-21/darkvoid.nvim',
-    lazy = false,
+  { -- Devel
+		"gnualmalki/devel.nvim",
+		lazy = false,
+		priority = 1000,
     config = function()
-      -- vim.cmd.colorscheme("darkvoid")
+      -- vim.cmd.colorscheme("devel")
     end, 
-  },
+	},
 
   { -- Dracula
     "Mofiqul/dracula.nvim",
     lazy = false,
     config = function()
-      -- vim.cmd.colorscheme("dracula")
+      vim.cmd.colorscheme("dracula-soft")
     end, 
   },
 
@@ -30,7 +31,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("kanagawa")
+      -- vim.cmd.colorscheme("kanagawa")
     end,
   },
 
