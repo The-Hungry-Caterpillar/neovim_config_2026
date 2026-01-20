@@ -2,6 +2,7 @@ return {
   "echasnovski/mini.nvim",
   version = false, -- always use latest
   config = function()
+
     -- Commenting: gc / gcc, respects treesitter
     require("mini.comment").setup({
       options = {
@@ -25,25 +26,61 @@ return {
     
     -- Icons
     require("mini.icons").setup()
+    
+    -- -- Clue -------------------------------------------------------------------
+    -- require("mini.clue").setup({
+    --   triggers = {
+    --     -- Leader
+    --     { mode = "n", keys = "<Leader>" },
+    --     { mode = "x", keys = "<Leader>" },
+    --
+    --     -- Built-in “prefix” keys
+    --     { mode = "n", keys = "w" },
+    --     { mode = "n", keys = "g" },
+    --     { mode = "n", keys = "[" },
+    --     { mode = "n", keys = "]" },
+    --
+    --     -- Optional: show after Ctrl-w (window commands)
+    --     { mode = "n", keys = "<C-w>" },
+    --   },
+    --
+    --   clues = {
+    --     -- Show “real” keymaps with desc from config
+    --     require("mini.clue").gen_clues.builtin_completion(),
+    --     require("mini.clue").gen_clues.g(),
+    --     require("mini.clue").gen_clues.marks(),
+    --     require("mini.clue").gen_clues.registers(),
+    --     require("mini.clue").gen_clues.windows(),
+    --
+    --     -- Extra labels for your personal prefixes (nice UX)
+    --     { mode = "n", keys = "<Leader>f", desc = "+file" },
+    --     { mode = "n", keys = "<Leader>b", desc = "+buffer" },
+    --     { mode = "n", keys = "<Leader>g", desc = "+git" },
+    --     { mode = "n", keys = "<Leader>n", desc = "+notes" },
+    --     { mode = "n", keys = "w",         desc = "+window (custom)" },
+    --   },
+    --
+    --   window = {
+    --     delay = 250,
+    --     config = { width = "auto" },
+    --   },
+    -- })
 
-    -- Animate ----------------------------------------------------------------
-    local animate = require("mini.animate")
-    animate.setup({
-      cursor = {
-        enable = true,
-        timing = animate.gen_timing.linear({ duration = 80, unit = "total" }),
-      },
-      scroll = {
-        enable = true,
-        timing = animate.gen_timing.linear({ duration = 120, unit = "total" }),
-      },
-      resize = {
-        enable = true,
-        timing = animate.gen_timing.linear({ duration = 100, unit = "total" }),
-      },
-      open = { enable = false },
-      close = { enable = false },
-    })
+    -- -- Animate ----------------------------------------------------------------
+    -- local animate = require("mini.animate")
+    -- animate.setup({
+    --   cursor = {
+    --     enable = false,
+    --   },
+    --   scroll = {
+    --     enable = true,
+    --   },
+    --   resize = {
+    --     enable = true,
+    --   },
+    --   open = { enable = false },
+    --   close = { enable = false },
+    -- })
 
 
     -- Autopairs --------------------------------------------------------------
@@ -54,8 +91,6 @@ return {
       skip_unbalanced = true,
       markdown = true,
     })
-
-
 
     -- Mini-files--------------------------------------------------------------
     require("mini.files").setup({
@@ -101,7 +136,8 @@ return {
         if w > 90 then
           return read_lines(base .. "dragon.txt")
         else
-          return read_lines(base .. "calm.txt")
+          return read_lines(base .. "dragon.txt")
+          -- return read_lines(base .. "calm.txt")
         end
       end,
 
@@ -120,6 +156,16 @@ return {
         starter.gen_hook.aligning("center", "center"),
       },
     })
+
+    -- Keep mini.tabline visible outside of MiniStarter
+    vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+      callback = function()
+        -- When not in the starter buffer, ensure tabline is enabled
+        if vim.bo.filetype ~= "ministarter" then
+          vim.o.showtabline = 2
+        end
+        end
+      })
 
     -- Open Starter on `nvim` (no args) and `nvim .` (directory arg)
     vim.api.nvim_create_autocmd("VimEnter", {

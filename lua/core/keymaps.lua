@@ -1,65 +1,97 @@
+-------------------------------------------------------------------------------
+-- Keymaps
+-------------------------------------------------------------------------------
+
 local map = vim.keymap.set
 
--- <leader>fv to exit file and go back to explorer
-map("n", "<leader>fv", vim.cmd.Ex)
+-- Small helpers to enforce descriptions
+local function nmap(lhs, rhs, desc, opts)
+  opts = opts or {}
+  opts.desc = desc
+  map("n", lhs, rhs, opts)
+end
 
--- jk for quick esc to normal mode 
-map("i", "jk", "<Esc>")
+local function imap(lhs, rhs, desc, opts)
+  opts = opts or {}
+  opts.desc = desc
+  map("i", lhs, rhs, opts)
+end
 
--- <leader>w to save changes
-map("n", "<leader>w", vim.cmd.w)
+local function vmap(lhs, rhs, desc, opts)
+  opts = opts or {}
+  opts.desc = desc
+  map("v", lhs, rhs, opts)
+end
 
--- move lines in view mode
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
+local function tmap(lhs, rhs, desc, opts)
+  opts = opts or {}
+  opts.desc = desc
+  map("t", lhs, rhs, opts)
+end
 
--- keep cursor in middle when moving up/down half page
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
+-- Basics ---------------------------------------------------------------------
 
--- pipe shortcut for R
-map("i", "jj", "%>%")
+nmap("<leader>fv", vim.cmd.Ex, "Explorer: open netrw")
+imap("jk", "<Esc>", "Escape insert mode")
+nmap("<leader>w", vim.cmd.w, "Save file")
 
--- keep cursor in middle when jumping through search hits
-map("n", "N", "Nzzzv")
-map("n", "n", "nzzzv")
+-- Move selected lines up/down (visual mode)
+vmap("J", ":m '>+1<CR>gv=gv", "Move selection down")
+vmap("K", ":m '<-2<CR>gv=gv", "Move selection up")
 
--- -- yank to keyboard
--- map("n", "<leader>y", "\"+y")
--- map("n", "<leader>Y", "\"+Y")
--- map("v", "<leader>y", "\"+y")
+-- Keep cursor centered when half-page jumping
+nmap("<C-d>", "<C-d>zz", "Half-page down (center)")
+nmap("<C-u>", "<C-u>zz", "Half-page up (center)")
+
+-- R: insert pipe operator
+imap("jj", "%>%", "Insert %>% pipe")
+
+-- Keep cursor centered when moving through search results
+nmap("N", "Nzzzv", "Search previous (center)")
+nmap("n", "nzzzv", "Search next (center)")
 
 -- Create windows easier, tmux-like
-map("n", "w|", "<C-w>v")
-map("n", "w_", "<C-w>s")
+nmap("w|", "<C-w>v", "Split vertical")
+nmap("w_", "<C-w>s", "Split horizontal")
 
--- Move through buffers more better
-map("n", "L", ":bnext<CR>")
-map("n", "H", ":bprevious<CR>")
--- <leader>bd to delete buffer but not window
-map("n", "<leader>d", ":<C-U>bprevious <bar> bdelete #<CR>")
--- faster terminal exit
-map("t", "<Esc>", "<C-\\><C-n>")
+-- Move through buffers
+nmap("L", ":bnext<CR>", "Next buffer")
+nmap("H", ":bprevious<CR>", "Previous buffer")
 
--- Insert a header line with ctrl+l
-vim.keymap.set("i", "<C-l>", function()
-  local col = vim.fn.col('.')
+-- Delete buffer but keep window
+nmap("<leader>d", ":<C-U>bprevious <bar> bdelete #<CR>", "Delete buffer (keep window)")
+
+-- Faster terminal exit
+tmap("<Esc>", "<C-\\><C-n>", "Exit terminal mode")
+
+-- Lazy
+nmap("<leader>l", "<cmd>Lazy<cr>", "Lazy.nvim: plugin manager")
+
+
+-- Editing helpers ------------------------------------------------------------
+
+-- Insert a divider line to 79 columns with Ctrl+L (insert mode)
+imap("<C-l>", function()
+  local col = vim.fn.col(".")
   local width = 79
   if col < width then
     vim.api.nvim_put({ string.rep("-", width - col + 1) }, "c", true, true)
   end
-end, { desc = "Insert divider to 79 columns" })
+end, "Insert divider to 79 columns")
 
--- j and k move through wrapped lines, i.e. not logical lines
-vim.keymap.set("n", "j", function()
+-- j/k move through wrapped display lines when no count is given
+nmap("j", function()
   return vim.v.count == 0 and "gj" or "j"
-end, { expr = true, silent = true })
-vim.keymap.set("n", "k", function()
-  return vim.v.count == 0 and "gk" or "k"
-end, { expr = true, silent = true })
+end, "Down (screen line if wrapped)", { expr = true, silent = true })
 
--- Lazygit integration --------------------------------------------------------
-vim.keymap.set("n", "<leader>g", function()
+nmap("k", function()
+  return vim.v.count == 0 and "gk" or "k"
+end, "Up (screen line if wrapped)", { expr = true, silent = true })
+
+-- Git / tools ----------------------------------------------------------------
+
+-- Lazygit in a floating terminal
+nmap("<leader>g", function()
   local buf = vim.api.nvim_create_buf(false, true)
   local width = math.floor(vim.o.columns * 0.9)
   local height = math.floor(vim.o.lines * 0.9)
@@ -77,7 +109,6 @@ vim.keymap.set("n", "<leader>g", function()
   vim.fn.termopen("lazygit")
   vim.cmd("startinsert")
 
-  -- close window when lazygit exits
   vim.api.nvim_create_autocmd("TermClose", {
     buffer = buf,
     once = true,
@@ -87,32 +118,26 @@ vim.keymap.set("n", "<leader>g", function()
       end
     end,
   })
-end, { desc = "LazyGit (float)" })
+end, "LazyGit (float)")
 
--- mini.files ----------------------------------------------------------------
--- opens file tree
--- vim.keymap.set("n", "<leader>e", function()
---   require("mini.files").open(vim.api.nvim_buf_get_name(0))
--- end, { desc = "Explorer (mini.files)" })
-vim.keymap.set("n", "<leader>e", function()
-  local mf = require("mini.files")
-  mf.open(vim.fn.getcwd())
-end, { desc = "Explorer (mini.files)" })
+-- mini.nvim integrations  -----------------------------------------------------
 
+nmap("<leader>e", function()
+  require("mini.files").open(vim.fn.getcwd())
+end, "Explorer (mini.files)")
 
--- opens notes directory
-vim.keymap.set("n", "<leader>n", function()
+nmap("<leader>n", function()
   require("mini.files").open(vim.env.HOME .. "/notes")
-end, { desc = "Notes Explorer" })
+end, "Notes Explorer")
 
--- mini.bufremove ------------------------------------------------------------
-vim.keymap.set("n", "<leader>bd", function()
+nmap("<leader>bd", function()
   require("mini.bufremove").delete()
-end, { desc = "Delete buffer" })
+end, "Delete buffer (mini.bufremove)")
 
--- tmux navigator ------------------------------------------------------------
-vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { silent = true })
-vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { silent = true })
-vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { silent = true })
-vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { silent = true })
-vim.keymap.set("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", { silent = true })
+-- Tmux navigator -------------------------------------------------------------
+
+nmap("<C-h>", "<cmd>TmuxNavigateLeft<cr>", "Tmux: focus left", { silent = true })
+nmap("<C-j>", "<cmd>TmuxNavigateDown<cr>", "Tmux: focus down", { silent = true })
+nmap("<C-k>", "<cmd>TmuxNavigateUp<cr>", "Tmux: focus up", { silent = true })
+nmap("<C-l>", "<cmd>TmuxNavigateRight<cr>", "Tmux: focus right", { silent = true })
+nmap("<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", "Tmux: previous pane", { silent = true })

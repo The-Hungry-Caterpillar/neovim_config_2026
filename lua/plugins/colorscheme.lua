@@ -14,7 +14,7 @@ return {
 		lazy = false,
 		priority = 1000,
     config = function()
-      vim.cmd.colorscheme("darkvoid")
+      -- vim.cmd.colorscheme("darkvoid")
     end, 
 	},
 
@@ -22,7 +22,7 @@ return {
     "Mofiqul/dracula.nvim",
     lazy = false,
     config = function()
-      -- vim.cmd.colorscheme("dracula")
+      vim.cmd.colorscheme("dracula")
     end, 
   },
 
@@ -42,6 +42,16 @@ return {
       -- vim.cmd.colorscheme("vscode")
     end, 
   },
+
+  { -- Witch
+    "sontungexpt/witch",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      vim.cmd.colorscheme("witch-dark")
+    end,
+  },
+
 
 }
 
