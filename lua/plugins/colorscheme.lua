@@ -1,14 +1,5 @@
 return {
 
-  { -- Darkearth
-    "ptdewey/darkearth-nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- vim.cmd.colorscheme("darkearth")
-    end,
-  },
-
   { -- Darkvoid
 		"darkvoid-theme/darkvoid.nvim",
 		lazy = false,
@@ -22,7 +13,7 @@ return {
     "Mofiqul/dracula.nvim",
     lazy = false,
     config = function()
-      vim.cmd.colorscheme("dracula")
+      -- vim.cmd.colorscheme("dracula")
     end, 
   },
 
@@ -39,7 +30,7 @@ return {
     "Mofiqul/vscode.nvim",
     lazy = false,
     config = function()
-      -- vim.cmd.colorscheme("vscode")
+      vim.cmd.colorscheme("vscode")
     end, 
   },
 
@@ -48,10 +39,10 @@ return {
     priority = 1000,
     lazy = false,
     config = function()
-      vim.cmd.colorscheme("witch-dark")
+      -- vim.cmd.colorscheme("witch-dark")
+      -- vim.cmd.colorscheme("witch-light")
     end,
   },
-
 
 }
 

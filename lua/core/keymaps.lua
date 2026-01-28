@@ -44,7 +44,7 @@ nmap("<C-d>", "<C-d>zz", "Half-page down (center)")
 nmap("<C-u>", "<C-u>zz", "Half-page up (center)")
 
 -- R: insert pipe operator
-imap("jj", "%>%", "Insert %>% pipe")
+imap("jj", " %>%", "Insert %>% pipe")
 
 -- Keep cursor centered when moving through search results
 nmap("N", "Nzzzv", "Search previous (center)")
