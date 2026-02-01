@@ -26,11 +26,20 @@ return {
     end,
   },
 
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("tokyonight")
+    end,
+  },
+
   { -- VSCode
     "Mofiqul/vscode.nvim",
     lazy = false,
     config = function()
-      vim.cmd.colorscheme("vscode")
+      -- vim.cmd.colorscheme("vscode")
     end, 
   },
 
