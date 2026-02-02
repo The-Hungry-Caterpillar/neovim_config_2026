@@ -13,7 +13,7 @@ return {
     "Mofiqul/dracula.nvim",
     lazy = false,
     config = function()
-      -- vim.cmd.colorscheme("dracula")
+      vim.cmd.colorscheme("dracula")
     end, 
   },
 
@@ -26,11 +26,29 @@ return {
     end,
   },
 
+  { -- Tokyonight
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- vim.cmd.colorscheme("tokyonight")
+    end,
+  },
+
+  { -- Tomorrow Night Blue
+    "gnfisher/tomorrow-night-blue.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- vim.cmd.colorscheme("tomorrow-night-blue")
+    end,
+  },
+
   { -- VSCode
     "Mofiqul/vscode.nvim",
     lazy = false,
     config = function()
-      vim.cmd.colorscheme("vscode")
+      -- vim.cmd.colorscheme("vscode")
     end, 
   },
 
