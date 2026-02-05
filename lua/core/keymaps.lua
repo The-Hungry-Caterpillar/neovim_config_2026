@@ -58,8 +58,8 @@ nmap("w_", "<C-w>s", "Split horizontal")
 nmap("L", ":bnext<CR>", "Next buffer")
 nmap("H", ":bprevious<CR>", "Previous buffer")
 
--- Delete buffer but keep window
-nmap("<leader>d", ":<C-U>bprevious <bar> bdelete #<CR>", "Delete buffer (keep window)")
+-- -- Delete buffer but keep window
+-- nmap("<leader>d", ":<C-U>bprevious <bar> bdelete #<CR>", "Delete buffer (keep window)")
 
 -- Faster terminal exit
 tmap("<Esc>", "<C-\\><C-n>", "Exit terminal mode")
@@ -130,9 +130,35 @@ nmap("<leader>n", function()
   require("mini.files").open(vim.env.HOME .. "/notes")
 end, "Notes Explorer")
 
-nmap("<leader>bd", function()
+nmap("<leader>d", function()
   require("mini.bufremove").delete()
 end, "Delete buffer (mini.bufremove)")
+
+-- Harpoon --------------------------------------------------------------------
+nmap("<leader>ha", function()
+  require("harpoon"):list():add()
+end, "Harpoon: add file")
+
+nmap("<leader>hd", function()
+  require("harpoon"):list():remove()
+end, "Harpoon: remove current file")
+
+nmap("<leader>hh", function()
+  local harpoon = require("harpoon")
+  local list = harpoon:list()
+  harpoon.ui:toggle_quick_menu(list, {
+    title = "Harpoon",
+    show_index = true,
+  })
+end, "Harpoon: quick menu")
+
+nmap("<leader>1", function() require("harpoon"):list():select(1) end, "Harpoon: go to 1")
+nmap("<leader>2", function() require("harpoon"):list():select(2) end, "Harpoon: go to 2")
+nmap("<leader>3", function() require("harpoon"):list():select(3) end, "Harpoon: go to 3")
+nmap("<leader>4", function() require("harpoon"):list():select(4) end, "Harpoon: go to 4")
+nmap("<leader>5", function() require("harpoon"):list():select(5) end, "Harpoon: go to 5")
+
+
 
 -- Tmux navigator -------------------------------------------------------------
 

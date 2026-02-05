@@ -27,61 +27,45 @@ return {
     -- Icons
     require("mini.icons").setup()
     
-    -- -- Clue -------------------------------------------------------------------
-    -- require("mini.clue").setup({
-    --   triggers = {
-    --     -- Leader
-    --     { mode = "n", keys = "<Leader>" },
-    --     { mode = "x", keys = "<Leader>" },
-    --
-    --     -- Built-in “prefix” keys
-    --     { mode = "n", keys = "w" },
-    --     { mode = "n", keys = "g" },
-    --     { mode = "n", keys = "[" },
-    --     { mode = "n", keys = "]" },
-    --
-    --     -- Optional: show after Ctrl-w (window commands)
-    --     { mode = "n", keys = "<C-w>" },
-    --   },
-    --
-    --   clues = {
-    --     -- Show “real” keymaps with desc from config
-    --     require("mini.clue").gen_clues.builtin_completion(),
-    --     require("mini.clue").gen_clues.g(),
-    --     require("mini.clue").gen_clues.marks(),
-    --     require("mini.clue").gen_clues.registers(),
-    --     require("mini.clue").gen_clues.windows(),
-    --
-    --     -- Extra labels for your personal prefixes (nice UX)
-    --     { mode = "n", keys = "<Leader>f", desc = "+file" },
-    --     { mode = "n", keys = "<Leader>b", desc = "+buffer" },
-    --     { mode = "n", keys = "<Leader>g", desc = "+git" },
-    --     { mode = "n", keys = "<Leader>n", desc = "+notes" },
-    --     { mode = "n", keys = "w",         desc = "+window (custom)" },
-    --   },
-    --
-    --   window = {
-    --     delay = 250,
-    --     config = { width = "auto" },
-    --   },
-    -- })
+    -- Clue -------------------------------------------------------------------
+    require("mini.clue").setup({
+      triggers = {
+        -- Leader
+        { mode = "n", keys = "<Leader>" },
+        { mode = "x", keys = "<Leader>" },
 
-    -- -- Animate ----------------------------------------------------------------
-    -- local animate = require("mini.animate")
-    -- animate.setup({
-    --   cursor = {
-    --     enable = false,
-    --   },
-    --   scroll = {
-    --     enable = true,
-    --   },
-    --   resize = {
-    --     enable = true,
-    --   },
-    --   open = { enable = false },
-    --   close = { enable = false },
-    -- })
+        -- Built-in “prefix” keys
+        { mode = "n", keys = "w" },
+        { mode = "n", keys = "g" },
+        { mode = "n", keys = "[" },
+        { mode = "n", keys = "]" },
 
+        -- Optional: show after Ctrl-w (window commands)
+        { mode = "n", keys = "<C-w>" },
+      },
+
+      clues = {
+        -- Show “real” keymaps with desc from config
+        require("mini.clue").gen_clues.builtin_completion(),
+        require("mini.clue").gen_clues.g(),
+        require("mini.clue").gen_clues.marks(),
+        require("mini.clue").gen_clues.registers(),
+        require("mini.clue").gen_clues.windows(),
+
+        -- Extra labels for your personal prefixes (nice UX)
+        { mode = "n", keys = "<Leader>f", desc = "+file" },
+        { mode = "n", keys = "<Leader>b", desc = "+buffer" },
+        { mode = "n", keys = "<Leader>g", desc = "+git" },
+        { mode = "n", keys = "<Leader>n", desc = "+notes" },
+        { mode = "n", keys = "<Leader>h", desc = "+harpoon" },
+        { mode = "n", keys = "w",         desc = "+window (custom)" },
+      },
+
+      window = {
+        delay = 250,
+        config = { width = "auto" },
+      },
+    })
 
     -- Autopairs --------------------------------------------------------------
     require("mini.pairs").setup({
