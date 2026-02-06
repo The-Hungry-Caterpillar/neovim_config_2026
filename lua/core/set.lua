@@ -41,3 +41,21 @@ vim.opt.isfname:append("@-@")
 
 -- Fast
 vim.opt.updatetime = 50
+
+-- No statusline for R terminal buffers
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function(args)
+    local bufname = vim.api.nvim_buf_get_name(args.buf)
+
+    -- Match R.nvim terminals
+    if bufname:match("^term://") and bufname:match("R %-%-quiet") then
+      vim.schedule(function()
+        local win = vim.fn.bufwinid(args.buf)
+        if win ~= -1 then
+          -- window-local override
+          vim.api.nvim_set_option_value("statusline", " ", { win = win })
+        end
+      end)
+    end
+  end,
+})

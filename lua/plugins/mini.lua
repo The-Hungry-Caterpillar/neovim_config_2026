@@ -12,7 +12,7 @@ return {
 
     -- Statusline: clean, readable, no icons required
     require("mini.statusline").setup({
-      use_icons = false, -- safer across fonts/terminals
+      use_icons = true, -- safer across fonts/terminals
       set_vim_settings = true,
     })
 
