@@ -26,6 +26,17 @@ return {
     end,
   },
 
+  { -- Solarized
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("solarized-osaka").setup({
+        transparent = false
+      })
+    end
+  },
+
   { -- Tokyonight
     "folke/tokyonight.nvim",
     lazy = false,
