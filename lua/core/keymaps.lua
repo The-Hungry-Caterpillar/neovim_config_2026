@@ -8,6 +8,7 @@ local map = vim.keymap.set
 local function nmap(lhs, rhs, desc, opts)
   opts = opts or {}
   opts.desc = desc
+  if opts.silent == nil then opts.silent = true end
   map("n", lhs, rhs, opts)
 end
 
@@ -31,7 +32,6 @@ end
 
 -- Basics ---------------------------------------------------------------------
 
-nmap("<leader>fv", vim.cmd.Ex, "Explorer: open netrw")
 imap("jk", "<Esc>", "Escape insert mode")
 nmap("<leader>w", vim.cmd.w, "Save file")
 
@@ -58,14 +58,19 @@ nmap("w_", "<C-w>s", "Split horizontal")
 nmap("L", ":bnext<CR>", "Next buffer")
 nmap("H", ":bprevious<CR>", "Previous buffer")
 
--- -- Delete buffer but keep window
--- nmap("<leader>d", ":<C-U>bprevious <bar> bdelete #<CR>", "Delete buffer (keep window)")
-
 -- Faster terminal exit
 tmap("<Esc>", "<C-\\><C-n>", "Exit terminal mode")
 
 -- Lazy
 nmap("<leader>l", "<cmd>Lazy<cr>", "Lazy.nvim: plugin manager")
+
+-- Theme switcher
+vim.api.nvim_create_autocmd("User", {
+  pattern = "VeryLazy",
+  callback = function()
+    vim.keymap.set("n", "<leader>c", "<cmd>ThemeSwitch<cr>", { desc = "Switch theme", silent = true })
+  end,
+})
 
 
 -- Editing helpers ------------------------------------------------------------

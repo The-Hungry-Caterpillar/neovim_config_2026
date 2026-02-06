@@ -41,13 +41,3 @@ vim.opt.isfname:append("@-@")
 
 -- Fast
 vim.opt.updatetime = 50
-
--- Toggle background
-vim.keymap.set("n", "<leader>b", function()
-  if vim.o.background == "dark" then
-    vim.o.background = "light"
-  else
-    vim.o.background = "dark"
-  end
-end, { desc = "Toggle background (light/dark)" })
-

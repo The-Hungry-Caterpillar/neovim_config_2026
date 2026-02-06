@@ -13,7 +13,7 @@ return {
     "Mofiqul/dracula.nvim",
     lazy = false,
     config = function()
-      -- vim.cmd.colorscheme("dracula")
+      vim.cmd.colorscheme("dracula")
     end, 
   },
 
@@ -23,24 +23,6 @@ return {
     priority = 1000,
     config = function()
       -- vim.cmd.colorscheme("kanagawa")
-    end,
-  },
-
-  { -- Abstract-cs
-    "Abstract-IDE/Abstract-cs",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- vim.cmd.colorscheme("abscs")
-    end,
-  },
-
-  { -- Silentium
-    "silentium-theme/silentium.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("silentium")
     end,
   },
 
