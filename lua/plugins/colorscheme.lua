@@ -13,7 +13,7 @@ return {
     "Mofiqul/dracula.nvim",
     lazy = false,
     config = function()
-      vim.cmd.colorscheme("dracula")
+      -- vim.cmd.colorscheme("dracula")
     end, 
   },
 
@@ -26,13 +26,21 @@ return {
     end,
   },
 
-  {
-    "oskarnurm/koda.nvim",
+  { -- Abstract-cs
+    "Abstract-IDE/Abstract-cs",
     lazy = false,
     priority = 1000,
     config = function()
-      require("koda").setup({ transparent = true })
-      -- vim.cmd("colorscheme koda")
+      -- vim.cmd.colorscheme("abscs")
+    end,
+  },
+
+  { -- Silentium
+    "silentium-theme/silentium.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("silentium")
     end,
   },
 
@@ -42,15 +50,6 @@ return {
     priority = 1000,
     config = function()
       -- vim.cmd.colorscheme("tokyonight")
-    end,
-  },
-
-  { -- Tomorrow Night Blue
-    "gnfisher/tomorrow-night-blue.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- vim.cmd.colorscheme("tomorrow-night-blue")
     end,
   },
 
