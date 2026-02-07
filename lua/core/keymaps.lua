@@ -33,7 +33,13 @@ end
 -- Basics ---------------------------------------------------------------------
 
 imap("jk", "<Esc>", "Escape insert mode")
-nmap("<leader>w", vim.cmd.w, "Save file")
+-- nmap("<leader>w", vim.cmd.w, "Save file")
+
+-- Move by visual lines when wrapping
+vim.keymap.set("n", "j", "gj", { silent = true })
+vim.keymap.set("n", "k", "gk", { silent = true })
+vim.keymap.set("v", "j", "gj", { silent = true })
+vim.keymap.set("v", "k", "gk", { silent = true })
 
 -- Move selected lines up/down (visual mode)
 vmap("J", ":m '>+1<CR>gv=gv", "Move selection down")
@@ -49,10 +55,6 @@ imap("jj", " %>%", "Insert %>% pipe")
 -- Keep cursor centered when moving through search results
 nmap("N", "Nzzzv", "Search previous (center)")
 nmap("n", "nzzzv", "Search next (center)")
-
--- Create windows easier, tmux-like
-nmap("w|", "<C-w>v", "Split vertical")
-nmap("w_", "<C-w>s", "Split horizontal")
 
 -- Move through buffers
 nmap("L", ":bnext<CR>", "Next buffer")
@@ -71,6 +73,39 @@ vim.api.nvim_create_autocmd("User", {
     vim.keymap.set("n", "<leader>c", "<cmd>ThemeSwitch<cr>", { desc = "Switch theme", silent = true })
   end,
 })
+
+-- Split / window management --------------------------------------------------
+
+-- Create a visible group for clue systems
+nmap("<leader>s", "", "+split / window")
+
+-- Splits
+nmap("<leader>ss", "<C-w>s", "Split: horizontal")
+nmap("<leader>sv", "<C-w>v", "Split: vertical")
+
+-- Close current window
+nmap("<leader>sd", "<C-w>c", "Split: close window")
+
+-- Move focus
+nmap("<leader>sh", "<C-w>h", "Split: focus left")
+nmap("<leader>sj", "<C-w>j", "Split: focus down")
+nmap("<leader>sk", "<C-w>k", "Split: focus up")
+nmap("<leader>sl", "<C-w>l", "Split: focus right")
+
+-- Move window position
+nmap("<leader>sH", "<C-w>H", "Split: move window left")
+nmap("<leader>sJ", "<C-w>J", "Split: move window down")
+nmap("<leader>sK", "<C-w>K", "Split: move window up")
+nmap("<leader>sL", "<C-w>L", "Split: move window right")
+
+-- Resize
+nmap("<leader>s<Left>",  "<C-w><", "Split: narrower")
+nmap("<leader>s<Right>", "<C-w>>", "Split: wider")
+nmap("<leader>s<Up>",    "<C-w>+", "Split: taller")
+nmap("<leader>s<Down>",  "<C-w>-", "Split: shorter")
+
+-- Equalize
+nmap("<leader>s=", "<C-w>=", "Split: equalize")
 
 
 -- Editing helpers ------------------------------------------------------------

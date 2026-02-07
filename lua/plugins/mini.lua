@@ -57,6 +57,8 @@ return {
         { mode = "n", keys = "<Leader>c", desc = "colorscheme" },
         { mode = "n", keys = "<Leader>n", desc = "+notes" },
         { mode = "n", keys = "<Leader>h", desc = "+harpoon" },
+        { mode = "n", keys = "<Leader>s", desc = "+window" },
+
       },
 
       window = {

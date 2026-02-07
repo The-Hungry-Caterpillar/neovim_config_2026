@@ -14,9 +14,9 @@ return {
     lazy = false,
     config = function()
       require("dracula").setup({
-        transparent_bg = true
+        transparent_bg = false
       })
-      vim.cmd.colorscheme("dracula")
+      -- vim.cmd.colorscheme("dracula")
     end, 
   },
 
@@ -35,8 +35,9 @@ return {
     priority = 1000,
     config = function()
       require("solarized-osaka").setup({
-        transparent = false
+        transparent = true
       })
+      -- vim.cmd.colorscheme("solarized-osaka")
     end
   },
 
@@ -45,7 +46,10 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      -- vim.cmd.colorscheme("tokyonight")
+      require("tokyonight").setup({
+        transparent = false
+      })
+      vim.cmd.colorscheme("tokyonight")
     end,
   },
 
