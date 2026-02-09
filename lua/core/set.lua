@@ -7,6 +7,8 @@ vim.opt.showtabline = 0 -- Never show
 -- vim.opt.showtabline = 1 -- Only if multiple buffers
 -- vim.opt.showtabline = 2 -- Even if just one buffer
 
+vim.opt.scrolloff = 999
+
 -- Last key pressed
 vim.opt.showcmd = false
 
