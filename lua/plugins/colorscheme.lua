@@ -29,13 +29,23 @@ return {
     end,
   },
 
+  { -- Oasis
+    "uhs-robert/oasis.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("oasis").setup()
+        vim.cmd.colorscheme("oasis-starlight")
+    end
+  },
+
   { -- Solarized
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       require("solarized-osaka").setup({
-        transparent = true
+        transparent = false
       })
       -- vim.cmd.colorscheme("solarized-osaka")
     end
@@ -47,27 +57,9 @@ return {
     priority = 1000,
     config = function()
       require("tokyonight").setup({
-        transparent = false
+        transparent = true
       })
-      vim.cmd.colorscheme("tokyonight")
-    end,
-  },
-
-  { -- VSCode
-    "Mofiqul/vscode.nvim",
-    lazy = false,
-    config = function()
-      -- vim.cmd.colorscheme("vscode")
-    end, 
-  },
-
-  { -- Witch
-    "sontungexpt/witch",
-    priority = 1000,
-    lazy = false,
-    config = function()
-      -- vim.cmd.colorscheme("witch-dark")
-      -- vim.cmd.colorscheme("witch-light")
+      -- vim.cmd.colorscheme("tokyonight")
     end,
   },
 

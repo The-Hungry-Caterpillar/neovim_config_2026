@@ -17,5 +17,10 @@ return {
         { name = "buffer" },
       },
     })
+    cmp.setup.filetype("markdown", {
+      completion = {
+        autocomplete = false
+      }
+    })
   end,
 }

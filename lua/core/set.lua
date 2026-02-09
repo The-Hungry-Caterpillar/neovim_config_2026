@@ -2,6 +2,14 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- Tabline
+vim.opt.showtabline = 0 -- Never show
+-- vim.opt.showtabline = 1 -- Only if multiple buffers
+-- vim.opt.showtabline = 2 -- Even if just one buffer
+
+-- Last key pressed
+vim.opt.showcmd = false
+
 -- Line wrapping
 vim.opt.wrap = true
 vim.opt.linebreak = true

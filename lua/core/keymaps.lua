@@ -33,7 +33,7 @@ end
 -- Basics ---------------------------------------------------------------------
 
 imap("jk", "<Esc>", "Escape insert mode")
--- nmap("<leader>w", vim.cmd.w, "Save file")
+nmap("<leader>w", vim.cmd.w, "Save file")
 
 -- Move by visual lines when wrapping
 vim.keymap.set("n", "j", "gj", { silent = true })
@@ -64,7 +64,41 @@ nmap("H", ":bprevious<CR>", "Previous buffer")
 tmap("<Esc>", "<C-\\><C-n>", "Exit terminal mode")
 
 -- Lazy
-nmap("<leader>l", "<cmd>Lazy<cr>", "Lazy.nvim: plugin manager")
+nmap("<leader>l", "<cmd>Lazy<cr>", "Lazy")
+
+-- Quick line wrap
+nmap("K", "gqq", "Wrap line")
+
+-- vim.keymap.set("n", "<CR><CR>", function()
+--   -- Don't mess with pickers / readonly buffers
+--   if not vim.bo.modifiable or vim.bo.buftype == "prompt" then
+--     return
+--   end
+--
+--   -- Use buffer textwidth if set; otherwise default to 80
+--   local tw = vim.bo.textwidth
+--   if tw == 0 then tw = 80 end
+--
+--   -- Temporarily set textwidth, format just this line, restore
+--   local old_tw = vim.bo.textwidth
+--   vim.bo.textwidth = tw
+--   vim.cmd.normal({ args = { "gqq" }, bang = true })  -- format current line
+--   vim.bo.textwidth = old_tw
+-- end, { silent = true, desc = "Wrap current line at textwidth (default 80)" })
+--
+-- vim.keymap.set("n", "<CR>", function()
+--   -- In pickers / non-editable buffers, keep Enter's normal behavior
+--   if not vim.bo.modifiable
+--      or vim.bo.buftype == "prompt"
+--      or vim.bo.filetype == "TelescopePrompt"
+--      or vim.bo.filetype == "minifiles"
+--      or vim.bo.filetype == "minipick"
+--   then
+--     return "\r"
+--   end
+--   -- Editable buffers: split the line at cursor and return to normal
+--   return "a\r<Esc>"
+-- end, { expr = true, silent = true, desc = "Split line" })
 
 -- Theme switcher
 vim.api.nvim_create_autocmd("User", {
@@ -73,6 +107,7 @@ vim.api.nvim_create_autocmd("User", {
     vim.keymap.set("n", "<leader>c", "<cmd>ThemeSwitch<cr>", { desc = "Switch theme", silent = true })
   end,
 })
+
 
 -- Split / window management --------------------------------------------------
 
@@ -158,21 +193,21 @@ nmap("<leader>g", function()
       end
     end,
   })
-end, "LazyGit (float)")
+end, "LazyGit")
 
 -- mini.nvim integrations  -----------------------------------------------------
 
 nmap("<leader>e", function()
   require("mini.files").open(vim.fn.getcwd())
-end, "Explorer (mini.files)")
+end, "Explorer")
 
 nmap("<leader>n", function()
   require("mini.files").open(vim.env.HOME .. "/notes")
-end, "Notes Explorer")
+end, "Notes")
 
 nmap("<leader>d", function()
   require("mini.bufremove").delete()
-end, "Delete buffer (mini.bufremove)")
+end, "Delete buffer")
 
 -- Harpoon --------------------------------------------------------------------
 nmap("<leader>ha", function()

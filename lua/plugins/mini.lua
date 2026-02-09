@@ -22,7 +22,9 @@ return {
     })
 
     -- Tabs
-    require("mini.tabline").setup()
+    if vim.opt.showtabline:get() > 0 then
+      require("mini.tabline").setup()
+    end
     
     -- Icons
     require("mini.icons").setup()
@@ -57,7 +59,7 @@ return {
         { mode = "n", keys = "<Leader>c", desc = "colorscheme" },
         { mode = "n", keys = "<Leader>n", desc = "+notes" },
         { mode = "n", keys = "<Leader>h", desc = "+harpoon" },
-        { mode = "n", keys = "<Leader>s", desc = "+window" },
+        { mode = "n", keys = "<Leader>s", desc = "+split" },
 
       },
 
@@ -89,7 +91,7 @@ return {
     require("mini.pick").setup()
     vim.keymap.set("n", "<leader><space>", function()
       require("mini.pick").builtin.files()
-    end, { desc = "Fuzzy find files" })
+    end, { desc = "Fuzzy finder" })
 
     -- Indent scope -----------------------------------------------------------
     require("mini.indentscope").setup({
@@ -141,15 +143,15 @@ return {
       },
     })
 
-    -- Keep mini.tabline visible outside of MiniStarter
-    vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
-      callback = function()
-        -- When not in the starter buffer, ensure tabline is enabled
-        if vim.bo.filetype ~= "ministarter" then
-          vim.o.showtabline = 2
-        end
-        end
-      })
+    -- -- Keep mini.tabline visible outside of MiniStarter
+    -- vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+    --   callback = function()
+    --     -- When not in the starter buffer, ensure tabline is enabled
+    --     if vim.bo.filetype ~= "ministarter" then
+    --       vim.o.showtabline = 2
+    --     end
+    --     end
+    --   })
 
     -- Open Starter on `nvim` (no args) and `nvim .` (directory arg)
     vim.api.nvim_create_autocmd("VimEnter", {
