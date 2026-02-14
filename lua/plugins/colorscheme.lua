@@ -14,7 +14,7 @@ return {
     lazy = false,
     config = function()
       require("dracula").setup({
-        transparent_bg = false
+        transparent_bg = true
       })
       vim.cmd.colorscheme("dracula")
     end, 
@@ -36,6 +36,8 @@ return {
     config = function()
       require("oasis").setup()
         -- vim.cmd.colorscheme("oasis-starlight")
+        -- vim.cmd.colorscheme("oasis-midnight")
+        -- vim.cmd.colorscheme("oasis-abyss")
     end
   },
 
