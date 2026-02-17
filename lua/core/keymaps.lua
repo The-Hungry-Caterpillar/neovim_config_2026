@@ -179,6 +179,7 @@ nmap("<leader>d", function()
 end, "Delete buffer")
 
 -- Harpoon --------------------------------------------------------------------
+
 nmap("<leader>ha", function()
   require("harpoon"):list():add()
 end, "Harpoon: add file")

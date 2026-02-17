@@ -3,9 +3,9 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 -- Tabline
-vim.opt.showtabline = 0 -- Never show
+-- vim.opt.showtabline = 0 -- Never show
 -- vim.opt.showtabline = 1 -- Only if multiple buffers
--- vim.opt.showtabline = 2 -- Even if just one buffer
+vim.opt.showtabline = 2 -- Even if just one buffer
 
 vim.opt.scrolloff = 999
 
@@ -43,6 +43,9 @@ vim.opt.incsearch = true
 
 -- Better colors
 vim.opt.termguicolors = true
+
+-- Light/Dark mode
+vim.opt.background = "light"
 
 -- Always have 8 columns at bottom
 vim.opt.scrolloff = 15

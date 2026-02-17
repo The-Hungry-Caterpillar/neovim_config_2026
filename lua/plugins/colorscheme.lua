@@ -16,7 +16,7 @@ return {
       require("dracula").setup({
         transparent_bg = true
       })
-      vim.cmd.colorscheme("dracula")
+      -- vim.cmd.colorscheme("dracula")
     end, 
   },
 
@@ -49,7 +49,7 @@ return {
       require("solarized-osaka").setup({
         transparent = false
       })
-      -- vim.cmd.colorscheme("solarized-osaka")
+      -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
 
@@ -64,5 +64,16 @@ return {
       -- vim.cmd.colorscheme("tokyonight")
     end,
   },
+
+  { -- VScode
+    "Mofiqul/vscode.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("vscode")
+    end,
+  },
+
+  
 
 }
