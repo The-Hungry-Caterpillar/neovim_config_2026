@@ -44,9 +44,6 @@ vim.opt.incsearch = true
 -- Better colors
 vim.opt.termguicolors = true
 
--- Light/Dark mode
-vim.opt.background = "light"
-
 -- Always have 8 columns at bottom
 vim.opt.scrolloff = 15
 vim.opt.signcolumn = "yes"

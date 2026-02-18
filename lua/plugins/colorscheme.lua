@@ -16,7 +16,7 @@ return {
       require("dracula").setup({
         transparent_bg = true
       })
-      -- vim.cmd.colorscheme("dracula")
+      vim.cmd.colorscheme("dracula")
     end, 
   },
 
@@ -73,10 +73,17 @@ return {
       require("vscode").setup({
         transparent = true
       })
-      vim.cmd.colorscheme("vscode")
+      -- vim.cmd.colorscheme("vscode")
     end,
   },
 
-  
+  { -- Witch
+    "sontungexpt/witch",
+    priority = 1000,
+    lazy = false,
+    config = function()
+      -- vim.cmd.colorscheme("witch-light")
+    end,
+  },
 
 }
