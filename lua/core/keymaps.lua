@@ -132,6 +132,7 @@ nmap("k", function()
   return vim.v.count == 0 and "gk" or "k"
 end, "Up (screen line if wrapped)", { expr = true, silent = true })
 
+
 -- Git / tools ----------------------------------------------------------------
 
 -- Lazygit in a floating terminal
