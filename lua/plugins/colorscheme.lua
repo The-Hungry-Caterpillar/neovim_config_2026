@@ -20,6 +20,16 @@ return {
     end, 
   },
 
+  { -- e-ink
+		"e-ink-colorscheme/e-ink.nvim",
+		lazy = false,
+		priority = 1000,
+    config = function()
+      vim.o.background = "light"
+      vim.cmd.colorscheme("e-ink")
+    end, 
+	},
+
   { -- Kanagawa
     'rebelot/kanagawa.nvim',
     lazy = false,
@@ -62,7 +72,8 @@ return {
       require("tokyonight").setup({
         transparent = true
       })
-      vim.cmd.colorscheme("tokyonight")
+      -- vim.cmd.colorscheme("tokyonight")
+      -- vim.cmd.colorscheme("tokyonight-day")
     end,
   },
 
