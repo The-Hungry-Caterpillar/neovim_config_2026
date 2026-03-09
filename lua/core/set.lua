@@ -2,6 +2,7 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- Enable WSL copy to clipboard
 vim.g.clipboard = {
   name = 'win32yank',
   copy = {

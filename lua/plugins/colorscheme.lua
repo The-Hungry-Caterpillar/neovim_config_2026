@@ -58,7 +58,7 @@ return {
         italic_comments = true,
         transparent = {
           -- Enable transparent background.
-          bg = false,
+          bg = true,
           -- Enable transparent background for floating windows.
           float = false,
         },

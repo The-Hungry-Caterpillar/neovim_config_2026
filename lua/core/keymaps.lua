@@ -172,7 +172,10 @@ nmap("<leader>e", function()
 end, "Explorer")
 
 nmap("<leader>n", function()
-  require("mini.files").open(vim.env.HOME .. "/notes")
+  -- require("mini.files").open(vim.env.HOME .. "/notes/running_notes.md")
+  vim.cmd.edit(vim.env.HOME .. "/notes/running_notes.md")
+  vim.opt.number = not vim.opt.number:get()
+  vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, "Notes")
 
 nmap("<leader>d", function()
