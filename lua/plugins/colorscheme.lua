@@ -44,10 +44,33 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      require("monokai-pro").setup()
-      vim.cmd.colorscheme("monokai-pro-classic")
+      -- vim.cmd.colorscheme("monokai-pro-classic")
     end,
   },
+
+  { -- Nordic
+    'AlexvZyl/nordic.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("nordic").setup({
+        bold_keywords = true,
+        italic_comments = true,
+        transparent = {
+          -- Enable transparent background.
+          bg = false,
+          -- Enable transparent background for floating windows.
+          float = false,
+        },
+        -- Enable brighter float border.
+        bright_border = true,
+        -- Reduce the overall amount of blue in the theme.
+        reduced_blue = true,
+      })
+      vim.cmd.colorscheme("nordic")
+    end
+  },
+  
 
   { -- Oasis
     "uhs-robert/oasis.nvim",
