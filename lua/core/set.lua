@@ -2,6 +2,19 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.g.clipboard = {
+  name = 'win32yank',
+  copy = {
+    ['+'] = 'clip.exe',
+    ['*'] = 'clip.exe',
+  },
+  paste = {
+    ['+'] = {'powershell.exe', '-c', '[Console]::Out.Write($(Get-Clipboard -Raw))'},
+    ['*'] = {'powershell.exe', '-c', '[Console]::Out.Write($(Get-Clipboard -Raw))'},
+  },
+  cache_enabled = 0,
+}
+
 -- Tabline
 -- vim.opt.showtabline = 0 -- Never show
 -- vim.opt.showtabline = 1 -- Only if multiple buffers

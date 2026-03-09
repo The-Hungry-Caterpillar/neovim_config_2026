@@ -25,8 +25,8 @@ return {
 		lazy = false,
 		priority = 1000,
     config = function()
-      vim.o.background = "light"
-      vim.cmd.colorscheme("e-ink")
+      -- vim.o.background = "dark"
+      -- vim.cmd.colorscheme("e-ink")
     end, 
 	},
 
@@ -36,6 +36,16 @@ return {
     priority = 1000,
     config = function()
       -- vim.cmd.colorscheme("kanagawa")
+    end,
+  },
+
+  { -- Monokai
+    "loctvl842/monokai-pro.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("monokai-pro").setup()
+      vim.cmd.colorscheme("monokai-pro-classic")
     end,
   },
 
