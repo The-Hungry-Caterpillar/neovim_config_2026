@@ -20,16 +20,6 @@ return {
     end, 
   },
 
-  { -- e-ink
-		"e-ink-colorscheme/e-ink.nvim",
-		lazy = false,
-		priority = 1000,
-    config = function()
-      -- vim.o.background = "dark"
-      -- vim.cmd.colorscheme("e-ink")
-    end, 
-	},
-
   { -- Kanagawa
     'rebelot/kanagawa.nvim',
     lazy = false,
@@ -67,20 +57,7 @@ return {
         -- Reduce the overall amount of blue in the theme.
         reduced_blue = true,
       })
-      vim.cmd.colorscheme("nordic")
-    end
-  },
-  
-
-  { -- Oasis
-    "uhs-robert/oasis.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("oasis").setup()
-        -- vim.cmd.colorscheme("oasis-starlight")
-        -- vim.cmd.colorscheme("oasis-midnight")
-        -- vim.cmd.colorscheme("oasis-abyss")
+      -- vim.cmd.colorscheme("nordic")
     end
   },
 
@@ -93,7 +70,7 @@ return {
         transparent = true
       })
       -- vim.cmd.colorscheme("solarized-osaka")
-      -- vim.cmd.colorscheme("solarized-osaka-day")
+      vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
 
@@ -119,15 +96,6 @@ return {
         transparent = true
       })
       -- vim.cmd.colorscheme("vscode")
-    end,
-  },
-
-  { -- Witch
-    "sontungexpt/witch",
-    priority = 1000,
-    lazy = false,
-    config = function()
-      -- vim.cmd.colorscheme("witch-light")
     end,
   },
 
