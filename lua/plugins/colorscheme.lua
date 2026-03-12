@@ -34,7 +34,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      -- vim.cmd.colorscheme("monokai-pro-classic")
+      vim.cmd.colorscheme("monokai-pro-classic")
     end,
   },
 
@@ -70,7 +70,7 @@ return {
         transparent = true
       })
       -- vim.cmd.colorscheme("solarized-osaka")
-      vim.cmd.colorscheme("solarized-osaka-day")
+      -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
 
