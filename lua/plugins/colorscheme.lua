@@ -14,7 +14,7 @@ return {
     lazy = false,
     config = function()
       require("dracula").setup({
-        transparent_bg = true
+        transparent_bg = false
       })
       -- vim.cmd.colorscheme("dracula")
     end, 
@@ -34,7 +34,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("monokai-pro-classic")
+      -- vim.cmd.colorscheme("monokai-pro-classic")
     end,
   },
 
@@ -48,7 +48,7 @@ return {
         italic_comments = true,
         transparent = {
           -- Enable transparent background.
-          bg = true,
+          bg = false,
           -- Enable transparent background for floating windows.
           float = false,
         },
@@ -67,9 +67,9 @@ return {
     priority = 1000,
     config = function()
       require("solarized-osaka").setup({
-        transparent = true
+        transparent = false
       })
-      -- vim.cmd.colorscheme("solarized-osaka")
+      vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
@@ -80,7 +80,7 @@ return {
     priority = 1000,
     config = function()
       require("tokyonight").setup({
-        transparent = true
+        transparent = false
       })
       -- vim.cmd.colorscheme("tokyonight")
       -- vim.cmd.colorscheme("tokyonight-day")
@@ -93,7 +93,7 @@ return {
     priority = 1000,
     config = function()
       require("vscode").setup({
-        transparent = true
+        transparent = false
       })
       -- vim.cmd.colorscheme("vscode")
     end,
