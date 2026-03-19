@@ -1,5 +1,14 @@
 return {
 
+  { -- Citruszest
+    "zootedb0t/citruszest.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- vim.cmd.colorscheme("citruszest")
+    end, 
+  },
+
   { -- Darkvoid
 		"darkvoid-theme/darkvoid.nvim",
 		lazy = false,
@@ -25,7 +34,10 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      -- vim.cmd.colorscheme("kanagawa")
+      require("kanagawa").setup({
+        transparent = true
+      })
+      vim.cmd.colorscheme("kanagawa")
     end,
   },
 
@@ -67,9 +79,9 @@ return {
     priority = 1000,
     config = function()
       require("solarized-osaka").setup({
-        transparent = false
+        transparent = true
       })
-      vim.cmd.colorscheme("solarized-osaka")
+      -- vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
