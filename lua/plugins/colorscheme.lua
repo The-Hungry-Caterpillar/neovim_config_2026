@@ -18,6 +18,15 @@ return {
     end, 
 	},
 
+  { -- Deepwhite
+    'Verf/deepwhite.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("deepwhite")
+    end,
+  },
+
   { -- Dracula
     "Mofiqul/dracula.nvim",
     lazy = false,
@@ -37,7 +46,7 @@ return {
       require("kanagawa").setup({
         transparent = true
       })
-      vim.cmd.colorscheme("kanagawa")
+      -- vim.cmd.colorscheme("kanagawa")
     end,
   },
 
