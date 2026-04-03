@@ -1,5 +1,27 @@
 return {
 
+  { -- Ayu
+    "Shatur/neovim-ayu",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("ayu").setup({
+        overrides = {
+          Normal = { bg = "None" },
+          NormalFloat = { bg = "none" },
+          ColorColumn = { bg = "None" },
+          SignColumn = { bg = "None" },
+          Folded = { bg = "None" },
+          FoldColumn = { bg = "None" },
+          CursorLine = { bg = "None" },
+          CursorColumn = { bg = "None" },
+          VertSplit = { bg = "None" },
+        },
+      })
+      vim.cmd.colorscheme("ayu")
+    end, 
+  },
+
   { -- Citruszest
     "zootedb0t/citruszest.nvim",
     lazy = false,
@@ -23,7 +45,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("deepwhite")
+      -- vim.cmd.colorscheme("deepwhite")
     end,
   },
 
@@ -32,7 +54,7 @@ return {
     lazy = false,
     config = function()
       require("dracula").setup({
-        transparent_bg = false
+        transparent_bg = true
       })
       -- vim.cmd.colorscheme("dracula")
     end, 
@@ -55,6 +77,9 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+      require("monokai-pro").setup({
+        transparent_background = true
+      })
       -- vim.cmd.colorscheme("monokai-pro-classic")
     end,
   },
@@ -69,7 +94,7 @@ return {
         italic_comments = true,
         transparent = {
           -- Enable transparent background.
-          bg = false,
+          bg = true,
           -- Enable transparent background for floating windows.
           float = false,
         },
