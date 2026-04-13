@@ -73,7 +73,10 @@ nmap("K", "gqq", "Wrap line")
 vim.api.nvim_create_autocmd("User", {
   pattern = "VeryLazy",
   callback = function()
-    vim.keymap.set("n", "<leader>c", "<cmd>ThemeSwitch<cr>", { desc = "Switch theme", silent = true })
+    vim.keymap.set(
+      "n", "<leader>c", "<cmd>ThemeSwitch<cr>",
+      { desc = "Switch theme", silent = true }
+    )
   end,
 })
 
@@ -131,6 +134,19 @@ end, "Down (screen line if wrapped)", { expr = true, silent = true })
 nmap("k", function()
   return vim.v.count == 0 and "gk" or "k"
 end, "Up (screen line if wrapped)", { expr = true, silent = true })
+
+-- Toggle background between light and dark
+vim.api.nvim_create_user_command('ToggleBackground', function()
+  if vim.o.background == 'dark' then
+    vim.o.background = 'light'
+  else
+    vim.o.background = 'dark'
+  end
+end, {})
+vim.keymap.set(
+  'n', '<leader>bd', '<cmd>ToggleBackground<cr>',
+  { desc = 'Toggle background' }
+)
 
 
 -- Git / tools ----------------------------------------------------------------
