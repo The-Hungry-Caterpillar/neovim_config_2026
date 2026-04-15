@@ -90,9 +90,11 @@ return {
     lazy = false,
     config = function()
       require("nightfox").setup({
-        -- transparent_bg = false
+        options = {
+          transparent = true
+        },
       })
-      -- vim.cmd.colorscheme("nightfox")
+      vim.cmd.colorscheme("dayfox")
     end, 
   },
 
