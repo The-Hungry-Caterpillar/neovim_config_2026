@@ -45,7 +45,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme("deepwhite")
+      -- vim.cmd.colorscheme("deepwhite")
     end,
   },
 
@@ -94,7 +94,7 @@ return {
           transparent = true
         },
       })
-      vim.cmd.colorscheme("dayfox")
+      -- vim.cmd.colorscheme("dayfox")
     end, 
   },
 
@@ -129,7 +129,7 @@ return {
       require("solarized-osaka").setup({
         transparent = false
       })
-      -- vim.cmd.colorscheme("solarized-osaka")
+      vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
