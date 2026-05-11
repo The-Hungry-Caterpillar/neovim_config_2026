@@ -10,6 +10,8 @@ return {
       },
     })
 
+    require("mini.align").setup()
+
     -- Statusline: clean, readable, no icons required
     require("mini.statusline").setup({
       use_icons = true, -- safer across fonts/terminals

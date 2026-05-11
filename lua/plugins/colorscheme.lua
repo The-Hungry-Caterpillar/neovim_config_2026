@@ -22,30 +22,21 @@ return {
     end, 
   },
 
-  { -- Citruszest
-    "zootedb0t/citruszest.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- vim.cmd.colorscheme("citruszest")
-    end, 
-  },
-
-  { -- Darkvoid
-		"darkvoid-theme/darkvoid.nvim",
-		lazy = false,
-		priority = 1000,
-    config = function()
-      -- vim.cmd.colorscheme("darkvoid")
-    end, 
-	},
-
   { -- Deepwhite
     'Verf/deepwhite.nvim',
     lazy = false,
     priority = 1000,
     config = function()
       -- vim.cmd.colorscheme("deepwhite")
+    end,
+  },
+
+  { -- Devel
+    "gnualmalki/devel.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- vim.cmd("colorscheme devel")
     end,
   },
 
@@ -72,52 +63,11 @@ return {
     end,
   },
 
-  { -- Monokai
-    "loctvl842/monokai-pro.nvim",
-    lazy = false,
+  {
+    "initsyscall/themeInitNvim",
+    url = "https://codeberg.org/initsyscall/themeInitNvim",
     priority = 1000,
     config = function()
-      require("monokai-pro").setup({
-        transparent_background = false
-      })
-      -- vim.cmd.colorscheme("monokai-pro-classic")
-      -- vim.cmd.colorscheme("monokai-pro-light")
-    end,
-  },
-
-  { -- Nightfox
-    "Edeneast/nightfox.nvim",
-    lazy = false,
-    config = function()
-      require("nightfox").setup({
-        options = {
-          transparent = true
-        },
-      })
-      -- vim.cmd.colorscheme("dayfox")
-    end, 
-  },
-
-  { -- Nordic
-    'AlexvZyl/nordic.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("nordic").setup({
-        bold_keywords = true,
-        italic_comments = true,
-        transparent = {
-          -- Enable transparent background.
-          bg = false,
-          -- Enable transparent background for floating windows.
-          float = false,
-        },
-        -- Enable brighter float border.
-        bright_border = true,
-        -- Reduce the overall amount of blue in the theme.
-        reduced_blue = true,
-      })
-      -- vim.cmd.colorscheme("nordic")
     end
   },
 
@@ -129,7 +79,7 @@ return {
       require("solarized-osaka").setup({
         transparent = false
       })
-      vim.cmd.colorscheme("solarized-osaka")
+      -- vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
@@ -144,18 +94,6 @@ return {
       })
       -- vim.cmd.colorscheme("tokyonight")
       -- vim.cmd.colorscheme("tokyonight-day")
-    end,
-  },
-
-  { -- VScode
-    "Mofiqul/vscode.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("vscode").setup({
-        transparent = false
-      })
-      -- vim.cmd.colorscheme("vscode")
     end,
   },
 
