@@ -35,6 +35,10 @@ end
 imap("jk", "<Esc>", "Escape insert mode")
 nmap("<leader>w", vim.cmd.w, "Save file")
 
+-- Switch directions of paragraph scrolling
+vim.keymap.set({'n', 'v'}, '{', '}', { noremap = true })
+vim.keymap.set({'n', 'v'}, '}', '{', { noremap = true })
+
 -- Move by visual lines when wrapping
 vim.keymap.set("n", "j", "gj", { silent = true })
 vim.keymap.set("n", "k", "gk", { silent = true })
@@ -57,14 +61,11 @@ nmap("N", "Nzzzv", "Search previous (center)")
 nmap("n", "nzzzv", "Search next (center)")
 
 -- Move through buffers
-nmap("L", ":bnext<CR>", "Next buffer")
-nmap("H", ":bprevious<CR>", "Previous buffer")
+nmap("<leader>h", ":bnext<CR>", "Next buffer")
+nmap("<leader>l", ":bprevious<CR>", "Previous buffer")
 
 -- Faster terminal exit
 tmap("<Esc>", "<C-\\><C-n>", "Exit terminal mode")
-
--- Lazy
-nmap("<leader>l", "<cmd>Lazy<cr>", "Lazy")
 
 -- Quick line wrap
 nmap("K", "gqq", "Wrap line")
@@ -197,32 +198,6 @@ end, "Notes")
 nmap("<leader>d", function()
   require("mini.bufremove").delete()
 end, "Delete buffer")
-
--- Harpoon --------------------------------------------------------------------
-
-nmap("<leader>ha", function()
-  require("harpoon"):list():add()
-end, "Harpoon: add file")
-
-nmap("<leader>hd", function()
-  require("harpoon"):list():remove()
-end, "Harpoon: remove current file")
-
-nmap("<leader>hh", function()
-  local harpoon = require("harpoon")
-  local list = harpoon:list()
-  harpoon.ui:toggle_quick_menu(list, {
-    title = "Harpoon",
-    show_index = true,
-  })
-end, "Harpoon: quick menu")
-
-nmap("<leader>1", function() require("harpoon"):list():select(1) end, "Harpoon: go to 1")
-nmap("<leader>2", function() require("harpoon"):list():select(2) end, "Harpoon: go to 2")
-nmap("<leader>3", function() require("harpoon"):list():select(3) end, "Harpoon: go to 3")
-nmap("<leader>4", function() require("harpoon"):list():select(4) end, "Harpoon: go to 4")
-nmap("<leader>5", function() require("harpoon"):list():select(5) end, "Harpoon: go to 5")
-
 
 
 -- Tmux navigator -------------------------------------------------------------

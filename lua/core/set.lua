@@ -66,6 +66,14 @@ vim.opt.isfname:append("@-@")
 -- Fast
 vim.opt.updatetime = 50
 
+-- Remove markdown error highlighting
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    vim.api.nvim_set_hl(0, "markdownError", { link = "Normal" })
+  end,
+})
+
 -- No statusline for R terminal buffers
 vim.api.nvim_create_autocmd("TermOpen", {
   callback = function(args)
@@ -83,6 +91,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
     end
   end,
 })
+
+vim.cmd.colorscheme("industry")
 --
 -- -- Override tabline highlights for every colorscheme load
 -- vim.api.nvim_create_autocmd("ColorScheme", {

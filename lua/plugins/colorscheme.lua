@@ -1,27 +1,5 @@
 return {
 
-  { -- Ayu
-    "Shatur/neovim-ayu",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("ayu").setup({
-        -- overrides = {
-        --   Normal = { bg = "None" },
-        --   NormalFloat = { bg = "none" },
-        --   ColorColumn = { bg = "None" },
-        --   SignColumn = { bg = "None" },
-        --   Folded = { bg = "None" },
-        --   FoldColumn = { bg = "None" },
-        --   CursorLine = { bg = "None" },
-        --   CursorColumn = { bg = "None" },
-        --   VertSplit = { bg = "None" },
-        -- },
-      })
-      -- vim.cmd.colorscheme("ayu")
-    end, 
-  },
-
   { -- Deepwhite
     'Verf/deepwhite.nvim',
     lazy = false,
@@ -51,24 +29,33 @@ return {
     end, 
   },
 
-  { -- Kanagawa
-    'rebelot/kanagawa.nvim',
+  { -- Gruvbox
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    config = function()
+      require("gruvbox").setup()
+      -- vim.opt.background = "light"
+      -- vim.cmd.colorscheme("gruvbox")
+    end, 
+  },
+
+  { -- OC-2
+    'builtbyleo/oc-2.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      require("kanagawa").setup({
-        transparent = false
-      })
-      -- vim.cmd.colorscheme("kanagawa")
+      -- vim.cmd.colorscheme("oc-2")
     end,
   },
 
-  {
-    "initsyscall/themeInitNvim",
-    url = "https://codeberg.org/initsyscall/themeInitNvim",
-    priority = 1000,
+  { -- Pastel
+    "ankushbhagats/pastel.nvim",
+    lazy = false, -- disable lazy loading 
+    priority = 1000, -- load immediately at startup
+    opts = {}, -- your configuration comes here
     config = function()
-    end
+      vim.cmd.colorscheme("pastel")
+    end,
   },
 
   { -- Solarized
