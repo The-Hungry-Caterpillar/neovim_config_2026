@@ -61,8 +61,8 @@ nmap("N", "Nzzzv", "Search previous (center)")
 nmap("n", "nzzzv", "Search next (center)")
 
 -- Move through buffers
-nmap("<leader>h", ":bnext<CR>", "Next buffer")
-nmap("<leader>l", ":bprevious<CR>", "Previous buffer")
+nmap("<leader>l", ":bnext<CR>", "Next buffer")
+nmap("<leader>h", ":bprevious<CR>", "Previous buffer")
 
 -- Faster terminal exit
 tmap("<Esc>", "<C-\\><C-n>", "Exit terminal mode")
