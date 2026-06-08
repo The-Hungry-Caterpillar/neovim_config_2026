@@ -54,7 +54,7 @@ return {
     priority = 1000, -- load immediately at startup
     opts = {}, -- your configuration comes here
     config = function()
-      vim.cmd.colorscheme("pastel")
+      -- vim.cmd.colorscheme("pastel")
     end,
   },
 
@@ -79,7 +79,7 @@ return {
       require("tokyonight").setup({
         transparent = false
       })
-      -- vim.cmd.colorscheme("tokyonight")
+      vim.cmd.colorscheme("tokyonight")
       -- vim.cmd.colorscheme("tokyonight-day")
     end,
   },
