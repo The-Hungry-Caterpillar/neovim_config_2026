@@ -20,6 +20,16 @@ return {
     end, 
   },
 
+  { -- Embark
+    "embark-theme/vim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.opt.termguicolors = true
+      -- vim.cmd.colorscheme("embark")
+    end,
+  },
+
   { -- Solarized
     "craftzdog/solarized-osaka.nvim",
     lazy = false,
@@ -31,16 +41,6 @@ return {
       -- vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
-  },
-
-  { -- Spaceduck
-      "pineapplegiant/spaceduck",
-      lazy = false,
-      priority = 1000,
-      config = function()
-          vim.opt.termguicolors = true
-          -- vim.cmd.colorscheme("spaceduck")
-      end,
   },
 
   { -- Srcy
