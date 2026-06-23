@@ -45,6 +45,15 @@ return {
     end
   },
 
+  { -- Space-vim
+      "liuchengxu/space-vim-dark",
+      lazy = false,
+      priority = 1000,
+      config = function()
+          -- vim.cmd.colorscheme("space-vim-dark")
+      end,
+  },
+
   { -- Srcy
       "srcery-colors/srcery-vim",
       lazy = false,
