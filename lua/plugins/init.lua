@@ -1,6 +1,7 @@
 return {
 
   { import = "plugins.cmp"           },
+  { import = "plugins.colorizer"     },
   { import = "plugins.colorscheme"   },
   { import = "plugins.flash"         },
   { import = "plugins.mini"          },

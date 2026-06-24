@@ -20,7 +20,7 @@ return {
           "markdown",
           "yaml"
       },
-      auto_install = true,
+      auto_install = false,
     })
 
     indent = {
