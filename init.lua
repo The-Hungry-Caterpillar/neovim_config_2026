@@ -6,4 +6,5 @@ vim.g.loaded_netrwPlugin = 1
 require("core.keymaps")
 require("core.set")
 require("core.lazy")
-require("core.highlights")
+-- require("core.highlights")
+-- require("core.highlights_minimal")

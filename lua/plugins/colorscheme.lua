@@ -1,6 +1,5 @@
 return {
 
-
   { -- Deepwhite
     'Verf/deepwhite.nvim',
     lazy = false,
@@ -15,21 +14,10 @@ return {
     lazy = false,
     config = function()
       require("dracula").setup({
-        transparent_bg = false
+        transparent_bg = true
       })
-      -- vim.cmd.colorscheme("dracula")
+      vim.cmd.colorscheme("dracula")
     end, 
-  },
-
-  { -- Onedark
-    "navarasu/onedark.nvim",
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      require('onedark').setup ({
-        style = 'darker'
-      })
-      -- vim.cmd.colorscheme("onedark")
-    end
   },
 
   { -- Solarized
@@ -45,15 +33,6 @@ return {
     end
   },
 
-  { -- Space-vim
-      "liuchengxu/space-vim-dark",
-      lazy = false,
-      priority = 1000,
-      config = function()
-          -- vim.cmd.colorscheme("space-vim-dark")
-      end,
-  },
-
   { -- Srcy
       "srcery-colors/srcery-vim",
       lazy = false,
@@ -67,10 +46,13 @@ return {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    opts = {},
-    config = function()
-      vim.cmd.colorscheme("tokyonight")
+    opts = {
+      transparent = false,
+    },
+    config = function(_, opts)
+      require("tokyonight").setup(opts)
+      -- vim.cmd.colorscheme("tokyonight")
     end,
-  },
+  }
 
 }

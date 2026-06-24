@@ -196,5 +196,7 @@ return {
       end,
     })
 
+    -- vim.cmd.colorscheme("minischeme")
+
   end,
 }

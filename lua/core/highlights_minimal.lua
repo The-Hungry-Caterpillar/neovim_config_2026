@@ -4,49 +4,33 @@ local function with_style(group, opts)
 end
 
 local function apply()
-
-  -- Bright structural operators
-  vim.api.nvim_set_hl(0, "@operator.r", {
-    fg = "#ffcc66",
-    bold = true,
-  })
-
-  -- Function calls
+  -- operators: style only, no hard-coded color
   vim.api.nvim_set_hl(
     0,
-    "@function.call.r",
-    with_style("Function", { bold = true })
+    "@operator.r",
+    with_style("Operator", { bold = true })
   )
 
-  -- function(...) keyword
+  -- function(...) keyword only
   vim.api.nvim_set_hl(
     0,
     "@keyword.function.r",
     with_style("Keyword", { bold = true })
   )
 
-  -- Function parameters
+  -- parameters only
   vim.api.nvim_set_hl(
     0,
     "@variable.parameter.r",
     with_style("Identifier", { italic = true })
   )
 
-  -- Comments
+  -- comments only
   vim.api.nvim_set_hl(
     0,
     "@comment.r",
     with_style("Comment", { italic = true })
   )
-
-  vim.api.nvim_set_hl(
-    0,
-    "@operator.r", {
-      fg = "#ffcc66",
-      bold = true,
-    }
-  )
-
 end
 
 vim.api.nvim_create_autocmd("ColorScheme", {
