@@ -144,7 +144,7 @@ return {
       window = {
         side = "right",
         width = 10,
-        winblend = 50,
+        winblend = 25,
         show_integration_count = false,
       },
     })

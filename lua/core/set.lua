@@ -92,8 +92,8 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
-vim.cmd.colorscheme("industry")
---
+-- vim.cmd.colorscheme("industry")
+
 -- -- Override tabline highlights for every colorscheme load
 -- vim.api.nvim_create_autocmd("ColorScheme", {
 --   callback = function()
