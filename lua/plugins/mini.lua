@@ -3,35 +3,42 @@ return {
   version = false, -- always use latest
   config = function()
 
-    -- Commenting: gc / gcc, respects treesitter
+    ---------------------------------------------------------------------------
+    -- Commenting
     require("mini.comment").setup({
       options = {
         custom_commentstring = nil, -- let treesitter decide
       },
     })
 
+    ---------------------------------------------------------------------------
     require("mini.align").setup()
 
-    -- Statusline: clean, readable, no icons required
+    ---------------------------------------------------------------------------
+    -- Statusline
     require("mini.statusline").setup({
       use_icons = true, -- safer across fonts/terminals
       set_vim_settings = true,
     })
 
+    ---------------------------------------------------------------------------
     -- Buffer removal without killing windows
     require("mini.bufremove").setup({
       silent = true,
     })
 
+    ---------------------------------------------------------------------------
     -- Tabs
     if vim.opt.showtabline:get() > 0 then
       require("mini.tabline").setup()
     end
-    
+   
+    ---------------------------------------------------------------------------
     -- Icons
     require("mini.icons").setup()
-    
-    -- Clue -------------------------------------------------------------------
+   
+    ---------------------------------------------------------------------------
+    -- Clue
     require("mini.clue").setup({
       triggers = {
         -- Leader
@@ -71,7 +78,8 @@ return {
       },
     })
 
-    -- Autopairs --------------------------------------------------------------
+    ---------------------------------------------------------------------------
+    -- Autopairs
     require("mini.pairs").setup({
       modes = { insert = true, command = false, terminal = false },
       skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
@@ -80,7 +88,8 @@ return {
       markdown = true,
     })
 
-    -- Mini-files--------------------------------------------------------------
+    ---------------------------------------------------------------------------
+    -- Mini-files
     require("mini.files").setup({
       windows = {
         preview = true,
@@ -97,13 +106,15 @@ return {
       },
     })
 
-    -- Mini fuzzy finder ------------------------------------------------------
+    ---------------------------------------------------------------------------
+    -- Mini fuzzy finder
     require("mini.pick").setup()
     vim.keymap.set("n", "<leader><space>", function()
       require("mini.pick").builtin.files()
     end, { desc = "Fuzzy finder" })
 
-    -- Indent scope -----------------------------------------------------------
+    ---------------------------------------------------------------------------
+    -- Indent scope
     require("mini.indentscope").setup({
       symbol = "▏",
       -- symbol = "·",
@@ -114,7 +125,42 @@ return {
       },
     })
 
-    -- Splash page ------------------------------------------------------------
+    ---------------------------------------------------------------------------
+    -- Minimap
+    local map = require("mini.map")
+
+    map.setup({
+      integrations = {
+        map.gen_integration.builtin_search(),
+        map.gen_integration.diagnostic(),
+        map.gen_integration.gitsigns(),
+
+      },
+
+      symbols = {
+        encode = map.gen_encode_symbols.dot("4x2"),
+      },
+
+      window = {
+        side = "right",
+        width = 10,
+        winblend = 50,
+        show_integration_count = false,
+      },
+    })
+
+    vim.keymap.set("n", "<leader>mm", function()
+      MiniMap.toggle()
+    end, { desc = "Toggle minimap" })
+
+    vim.api.nvim_create_autocmd("VimEnter", {
+      callback = function()
+        MiniMap.open()
+      end,
+    })
+
+    ---------------------------------------------------------------------------
+    -- Starter
     local starter = require("mini.starter")
 
     local function read_lines(path)
@@ -196,7 +242,8 @@ return {
       end,
     })
 
-    -- vim.cmd.colorscheme("minischeme")
+    vim.opt.background = "light"
+    vim.cmd.colorscheme("minischeme")
 
   end,
 }
