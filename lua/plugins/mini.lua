@@ -153,11 +153,11 @@ return {
       MiniMap.toggle()
     end, { desc = "Toggle minimap" })
 
-    vim.api.nvim_create_autocmd("VimEnter", {
-      callback = function()
-        MiniMap.open()
-      end,
-    })
+    -- vim.api.nvim_create_autocmd("VimEnter", {
+    --   callback = function()
+    --     MiniMap.open()
+    --   end,
+    -- })
 
     ---------------------------------------------------------------------------
     -- Starter
@@ -242,8 +242,8 @@ return {
       end,
     })
 
-    vim.opt.background = "light"
-    vim.cmd.colorscheme("minischeme")
+    -- vim.opt.background = "light"
+    -- vim.cmd.colorscheme("minischeme")
 
   end,
 }
