@@ -5,6 +5,7 @@ return {
   { import = "plugins.colorscheme"   },
   { import = "plugins.flash"         },
   { import = "plugins.gitsigns"      },
+  { import = "plugins.lsp"           },
   { import = "plugins.mini"          },
   { import = "plugins.neoscroll"     },
   { import = "plugins.r"             },

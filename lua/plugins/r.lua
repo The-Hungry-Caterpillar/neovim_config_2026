@@ -7,9 +7,13 @@ return {
   -- },
   config = function()
     local opts = {
+
+      Rout_more_colors = false,
+
       bracketed_paste = true,
 
       R_args = { "--quiet", "--no-save" },
+
       pdfviewer = "xdg-open",
 
       quarto_chunk_hl = {
