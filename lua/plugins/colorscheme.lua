@@ -1,5 +1,18 @@
 return {
 
+  { -- Catppuccin
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        transparent_background = true
+      })
+      vim.cmd.colorscheme("catppuccin-macchiato")
+      -- vim.cmd.colorscheme("catppuccin-latte")
+    end,
+  },
+
   { -- Deepwhite
     'Verf/deepwhite.nvim',
     lazy = false,
@@ -16,7 +29,7 @@ return {
       require("dracula").setup({
         transparent_bg = true
       })
-      vim.cmd.colorscheme("dracula")
+      -- vim.cmd.colorscheme("dracula")
     end, 
   },
 
@@ -51,7 +64,7 @@ return {
     },
     config = function(_, opts)
       require("tokyonight").setup(opts)
-        vim.opt.background = "light"
+        -- vim.opt.background = "light"
       -- vim.cmd.colorscheme("tokyonight")
       -- vim.cmd.colorscheme("tokyonight-day")
     end,
