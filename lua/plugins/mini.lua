@@ -32,11 +32,11 @@ return {
     if vim.opt.showtabline:get() > 0 then
       require("mini.tabline").setup()
     end
-   
+
     ---------------------------------------------------------------------------
     -- Icons
     require("mini.icons").setup()
-   
+
     ---------------------------------------------------------------------------
     -- Clue
     require("mini.clue").setup({
@@ -63,12 +63,13 @@ return {
         require("mini.clue").gen_clues.registers(),
         require("mini.clue").gen_clues.windows(),
 
-        -- Extra labels for your personal prefixes (nice UX)
+        -- Extra labels for prefixes (nice UX)
         { mode = "n", keys = "<Leader>",  desc = "all"          },
         { mode = "n", keys = "<Leader>c", desc = "colorscheme"  },
         { mode = "n", keys = "<Leader>n", desc = "+notes"       },
         { mode = "n", keys = "<Leader>s", desc = "+split"       },
         { mode = "n", keys = "<Leader>x", desc = "+diagnostics" },
+        { mode = "n", keys = "<Leader>g", desc = "+git"         },
 
       },
 
@@ -138,7 +139,7 @@ return {
       },
 
       symbols = {
-        encode = map.gen_encode_symbols.dot("4x2"),
+        encode = map.gen_encode_symbols.dot("3x2"),
       },
 
       window = {

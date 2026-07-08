@@ -32,6 +32,17 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      })
+
       vim.lsp.enable({
         "bashls",
         "lua_ls",
@@ -40,6 +51,7 @@ return {
         "marksman",
         "r_language_server",
       })
+
     end,
   },
 }

@@ -16,7 +16,7 @@ return {
 
       pdfviewer = "xdg-open",
 
-      quarto_chunk_hl = {
+      chunk_hl = {
         highlight = false,
         bg = "#222222",
       },

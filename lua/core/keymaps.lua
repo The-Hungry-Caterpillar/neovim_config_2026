@@ -33,7 +33,8 @@ end
 -- Basics ---------------------------------------------------------------------
 
 imap("jk", "<Esc>", "Escape insert mode")
-nmap("<leader>w", vim.cmd.w, "Save file")
+nmap("<leader>w", "<cmd>w<CR>", "Save file")
+nmap("<leader>wq", "<cmd>wqa<CR>", "Save file and quit")
 
 -- Switch directions of paragraph scrolling
 vim.keymap.set({'n', 'v'}, '{', '}', { noremap = true })
@@ -153,7 +154,7 @@ vim.keymap.set(
 -- Git / tools ----------------------------------------------------------------
 
 -- Lazygit in a floating terminal
-nmap("<leader>g", function()
+nmap("<leader>gg", function()
   local buf = vim.api.nvim_create_buf(false, true)
   local width = math.floor(vim.o.columns * 0.9)
   local height = math.floor(vim.o.lines * 0.9)
@@ -208,16 +209,21 @@ nmap("<C-k>", "<cmd>TmuxNavigateUp<cr>", "Tmux: focus up", { silent = true })
 nmap("<C-l>", "<cmd>TmuxNavigateRight<cr>", "Tmux: focus right", { silent = true })
 nmap("<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", "Tmux: previous pane", { silent = true })
 
+
 -- LSP ------------------------------------------------------------------------
+
 vim.keymap.set("n", "<leader>xj", vim.diagnostic.goto_next, {
   desc = "Next diagnostic",
 })
 vim.keymap.set("n", "<leader>xk", vim.diagnostic.goto_prev, {
   desc = "Previous diagnostic",
 })
-vim.keymap.set("n", "<leader>xl", vim.diagnostic.open_float, {
-  desc = "Line diagnostics",
-})
 vim.keymap.set("n", "<leader>xd", vim.diagnostic.setloclist, {
   desc = "Diagnostics list",
 })
+vim.keymap.set("n", "<leader>xl", function()
+  vim.diagnostic.open_float({
+    border = "rounded",
+    source = "if_many",
+  })
+end, { desc = "Line diagnostics" })

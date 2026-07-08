@@ -92,6 +92,19 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
+-- Close certain windows with "q"
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "qf", "help", "man", "lspinfo" },
+  callback = function(event)
+    vim.keymap.set("n", "q", "<cmd>close<CR>", {
+      buffer = event.buf,
+      silent = true,
+      desc = "Close window",
+
+    })
+  end,
+})
+
 -- vim.cmd.colorscheme("industry")
 
 -- -- Override tabline highlights for every colorscheme load
