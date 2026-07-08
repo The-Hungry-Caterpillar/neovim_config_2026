@@ -64,11 +64,11 @@ return {
         require("mini.clue").gen_clues.windows(),
 
         -- Extra labels for your personal prefixes (nice UX)
-        { mode = "n", keys = "<Leader>",  desc = "all" },
-        { mode = "n", keys = "<Leader>c", desc = "colorscheme" },
-        { mode = "n", keys = "<Leader>n", desc = "+notes" },
-        { mode = "n", keys = "<Leader>h", desc = "+harpoon" },
-        { mode = "n", keys = "<Leader>s", desc = "+split" },
+        { mode = "n", keys = "<Leader>",  desc = "all"          },
+        { mode = "n", keys = "<Leader>c", desc = "colorscheme"  },
+        { mode = "n", keys = "<Leader>n", desc = "+notes"       },
+        { mode = "n", keys = "<Leader>s", desc = "+split"       },
+        { mode = "n", keys = "<Leader>x", desc = "+diagnostics" },
 
       },
 

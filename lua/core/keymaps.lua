@@ -209,15 +209,15 @@ nmap("<C-l>", "<cmd>TmuxNavigateRight<cr>", "Tmux: focus right", { silent = true
 nmap("<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", "Tmux: previous pane", { silent = true })
 
 -- LSP ------------------------------------------------------------------------
-vim.keymap.set("n", "gl", vim.diagnostic.open_float, {
-  desc = "Line diagnostics",
-})
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {
-  desc = "Previous diagnostic",
-})
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {
+vim.keymap.set("n", "<leader>xj", vim.diagnostic.goto_next, {
   desc = "Next diagnostic",
 })
-vim.keymap.set("n", "<leader>ld", vim.diagnostic.setloclist, {
+vim.keymap.set("n", "<leader>xk", vim.diagnostic.goto_prev, {
+  desc = "Previous diagnostic",
+})
+vim.keymap.set("n", "<leader>xl", vim.diagnostic.open_float, {
+  desc = "Line diagnostics",
+})
+vim.keymap.set("n", "<leader>xd", vim.diagnostic.setloclist, {
   desc = "Diagnostics list",
 })
