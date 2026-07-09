@@ -1,15 +1,11 @@
 return {
 
-  { -- Catppuccin
-    "catppuccin/nvim",
-    name = "catppuccin",
+  { -- Darkvoid
+    'aliqyan-21/darkvoid.nvim',
+    lazy = false,
     priority = 1000,
     config = function()
-      require("catppuccin").setup({
-        transparent_background = true
-      })
-      -- vim.cmd.colorscheme("catppuccin-macchiato")
-      -- vim.cmd.colorscheme("catppuccin-latte")
+      vim.cmd.colorscheme("darkvoid")
     end,
   },
 
@@ -29,7 +25,7 @@ return {
       require("dracula").setup({
         transparent_bg = true
       })
-      vim.cmd.colorscheme("dracula")
+      -- vim.cmd.colorscheme("dracula")
     end, 
   },
 
