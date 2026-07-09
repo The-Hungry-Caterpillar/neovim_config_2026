@@ -2,38 +2,65 @@ return {
 
   { -- Darkvoid
     'aliqyan-21/darkvoid.nvim',
-    lazy = false,
+    lazy     = false,
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("darkvoid")
+    config   = function()
+      -- vim.cmd.colorscheme("darkvoid")
     end,
   },
 
   { -- Deepwhite
     'Verf/deepwhite.nvim',
-    lazy = false,
+    lazy     = false,
     priority = 1000,
-    config = function()
+    config   = function()
       -- vim.cmd.colorscheme("deepwhite")
     end,
   },
 
   { -- Dracula
     "Mofiqul/dracula.nvim",
-    lazy = false,
+    lazy   = false,
     config = function()
       require("dracula").setup({
         transparent_bg = true
       })
       -- vim.cmd.colorscheme("dracula")
-    end, 
+    end,
+  },
+
+  { -- Evergarden
+    "everviolet/nvim",
+    lazy   = false,
+    config = function()
+      require('evergarden').setup({
+        theme = {
+          variant = 'fall',
+          accent = 'green',
+        },
+        editor = {
+          transparent_background = true,
+        },
+      })
+      vim.cmd.colorscheme("evergarden")
+    end,
+  },
+
+  { -- Silentium
+    "silentium-theme/silentium.nvim",
+    lazy     = false,
+    priority = 1000,
+    config   = function()
+      -- vim.cmd.colorscheme("silentium")
+    end
   },
 
   { -- Solarized
     "craftzdog/solarized-osaka.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
+    enabled         = false,
+    lazy            = false,
+    priority        = 1000,
+    config          = function()
       require("solarized-osaka").setup({
         transparent = false
       })
@@ -44,26 +71,37 @@ return {
 
   { -- Srcy
       "srcery-colors/srcery-vim",
-      lazy = false,
+      lazy     = false,
       priority = 1000,
-      config = function()
+      config   = function()
           -- vim.cmd.colorscheme("srcery")
       end,
   },
 
   { -- Tokyonight
     "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
+    enabled       = false,
+    lazy          = false,
+    priority      = 1000,
+    opts          = {
       transparent = false,
     },
-    config = function(_, opts)
+    config        = function(_, opts)
       require("tokyonight").setup(opts)
-        -- vim.opt.background = "light"
       -- vim.cmd.colorscheme("tokyonight")
       -- vim.cmd.colorscheme("tokyonight-day")
     end,
-  }
+  },
+
+  { -- Witch
+      "sontungexpt/witch",
+      enabled  = false,
+      priority = 1000,
+      lazy     = false,
+      config   = function(_, opts)
+          require("witch").setup(opts)
+      end,
+  },
+
 
 }
