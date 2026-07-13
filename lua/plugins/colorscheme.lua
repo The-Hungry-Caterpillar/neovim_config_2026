@@ -46,19 +46,6 @@ return {
     end,
   },
 
-  { -- Kanagawa
-    "rebelot/kanagawa.nvim",
-    lazy     = false,
-    priority = 1000,
-    config   = function()
-      require('kanagawa').setup({
-        transparent = false,
-        theme = "wave",
-      })
-      -- vim.cmd("colorscheme kanagawa")
-    end
-  },
-
   { -- Silentium
     "silentium-theme/silentium.nvim",
     lazy     = false,
@@ -87,7 +74,7 @@ return {
       lazy     = false,
       priority = 1000,
       config   = function()
-          -- vim.cmd.colorscheme("srcery")
+        vim.cmd.colorscheme("srcery")
       end,
   },
 
@@ -101,7 +88,7 @@ return {
     },
     config        = function(_, opts)
       require("tokyonight").setup(opts)
-      vim.cmd.colorscheme("tokyonight-moon")
+      -- vim.cmd.colorscheme("tokyonight-moon")
       -- vim.cmd.colorscheme("tokyonight-day")
     end,
   },
@@ -115,15 +102,5 @@ return {
           require("witch").setup(opts)
       end,
   },
-
-  { -- Vague
-      "vague-theme/vague.nvim",
-      lazy     = false,
-      priority = 1000,
-      config   = function()
-          -- vim.cmd.colorscheme("srcery")
-      end,
-  },
-
 
 }
