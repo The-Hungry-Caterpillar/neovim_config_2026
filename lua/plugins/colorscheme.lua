@@ -70,12 +70,13 @@ return {
   },
 
   { -- Srcy
-      "srcery-colors/srcery-vim",
-      lazy     = false,
-      priority = 1000,
-      config   = function()
-        vim.cmd.colorscheme("srcery")
-      end,
+    "srcery-colors/srcery-vim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.srcery_background = "NONE"
+      vim.cmd.colorscheme("srcery")
+    end,
   },
 
   { -- Tokyonight
