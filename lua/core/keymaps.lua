@@ -33,8 +33,9 @@ end
 -- Basics ---------------------------------------------------------------------
 
 imap("jk", "<Esc>", "Escape insert mode")
-nmap("<leader>w", "<cmd>w<CR>", "Save file")
+nmap("<leader>ww", "<cmd>wa<CR>", "Save file")
 nmap("<leader>wq", "<cmd>wqa<CR>", "Save file and quit")
+nmap("<leader>qq", "<cmd>qa!<CR>", "Force quit")
 
 -- Switch directions of paragraph scrolling
 vim.keymap.set({'n', 'v'}, '{', '}', { noremap = true })
@@ -62,8 +63,10 @@ nmap("N", "Nzzzv", "Search previous (center)")
 nmap("n", "nzzzv", "Search next (center)")
 
 -- Move through buffers
-nmap("<leader>l", ":bnext<CR>", "Next buffer")
-nmap("<leader>h", ":bprevious<CR>", "Previous buffer")
+-- nmap("<leader>l", ":bnext<CR>", "Next buffer")
+-- nmap("<leader>h", ":bprevious<CR>", "Previous buffer")
+nmap("L", ":bnext<CR>", "Next buffer")
+nmap("H", ":bprevious<CR>", "Previous buffer")
 
 -- Faster terminal exit
 tmap("<Esc>", "<C-\\><C-n>", "Exit terminal mode")
