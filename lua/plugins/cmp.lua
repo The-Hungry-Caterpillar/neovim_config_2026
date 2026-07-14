@@ -3,7 +3,7 @@ return {
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
+   "hrsh7th/cmp-path",
   },
   config = function()
     local cmp = require("cmp")
@@ -12,6 +12,16 @@ return {
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
       }),
+      window = {
+        completion = cmp.config.window.bordered({
+          border = "rounded",
+          winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
+        }),
+        documentation = cmp.config.window.bordered({
+          border = "rounded",
+          winhighlight = "Normal:CmpPmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None",
+        }),
+      },
       sources = {
         { name = "path" },
         { name = "buffer" },
