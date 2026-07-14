@@ -16,11 +16,6 @@ return {
 
       pdfviewer = "xdg-open",
 
-      chunk_hl = {
-        highlight = false,
-        bg = "#222222",
-      },
-
       hook = {
         on_filetype = function()
           -- buffer-local maps for R buffers
