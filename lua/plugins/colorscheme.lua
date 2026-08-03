@@ -31,6 +31,7 @@ return {
 
   { -- Evergarden
     "everviolet/nvim",
+    enable = false,
     lazy   = false,
     config = function()
       require('evergarden').setup({
@@ -46,25 +47,16 @@ return {
     end,
   },
 
-  { -- Silentium
-    "silentium-theme/silentium.nvim",
-    lazy     = false,
-    priority = 1000,
-    config   = function()
-      -- vim.cmd.colorscheme("silentium")
-    end
-  },
-
   { -- Solarized
     "craftzdog/solarized-osaka.nvim",
-    enabled         = false,
+    enabled         = true,
     lazy            = false,
     priority        = 1000,
     config          = function()
       require("solarized-osaka").setup({
         transparent = false
       })
-      -- vim.cmd.colorscheme("solarized-osaka")
+      vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
@@ -75,13 +67,13 @@ return {
     priority = 1000,
     config = function()
       vim.g.srcery_background = "NONE"
-      vim.cmd.colorscheme("srcery")
+      -- vim.cmd.colorscheme("srcery")
     end,
   },
 
   { -- Tokyonight
     "folke/tokyonight.nvim",
-    enabled       = true,
+    enabled       = false,
     lazy          = false,
     priority      = 1000,
     opts          = {
@@ -102,6 +94,19 @@ return {
       config   = function(_, opts)
           require("witch").setup(opts)
       end,
+  },
+
+  { -- Yoda
+    "kuri-sun/yoda.nvim",
+    lazy     = false,
+    priority = 1000,
+    opts     = {
+      theme = "dark", -- "dark" or "light"
+      transparent_background = false
+    },
+    config   = function(_, opts)
+      -- require("yoda").setup(opts)
+    end
   },
 
 }
