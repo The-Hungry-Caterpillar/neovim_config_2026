@@ -105,24 +105,23 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- vim.cmd.colorscheme("industry")
+vim.cmd.colorscheme("industry")
 
--- Override tabline highlights for every colorscheme load
-vim.api.nvim_create_autocmd("ColorScheme", {
-  callback = function()
-    -- Base tabline groups
-    vim.api.nvim_set_hl(0, "TabLine", { link = "Normal" })
-    vim.api.nvim_set_hl(0, "TabLineFill", { link = "Normal" })
-    vim.api.nvim_set_hl(0, "TabLineSel", { link = "Visual" })
-
-    -- MiniTabline groups
-    vim.api.nvim_set_hl(0, "MiniTablineCurrent", { link = "TabLineSel" })
-    vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "TabLine" })
-    vim.api.nvim_set_hl(0, "MiniTablineHidden", { link = "TabLine" })
-    vim.api.nvim_set_hl(0, "MiniTablineModifiedCurrent", { link = "TabLineSel" })
-    vim.api.nvim_set_hl(0, "MiniTablineModifiedVisible", { link = "TabLine" })
-    vim.api.nvim_set_hl(0, "MiniTablineModifiedHidden", { link = "TabLine" })
-    vim.api.nvim_set_hl(0, "MiniTablineFill", { link = "TabLineFill" })
-    vim.api.nvim_set_hl(0, "MiniTablineTabpagesection", { link = "TabLine" })
-  end,
-})
+-- -- Override tabline highlights for every colorscheme load
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--   callback = function()
+--     -- Base tabline groups
+--     vim.api.nvim_set_hl(0, "TabLine", { link = "Normal" })
+--     vim.api.nvim_set_hl(0, "TabLineFill", { link = "Normal" })
+--     vim.api.nvim_set_hl(0, "TabLineSel", { link = "Visual" })
+--     -- MiniTabline groups
+--     vim.api.nvim_set_hl(0, "MiniTablineCurrent", { link = "TabLineSel" })
+--     vim.api.nvim_set_hl(0, "MiniTablineVisible", { link = "TabLine" })
+--     vim.api.nvim_set_hl(0, "MiniTablineHidden", { link = "TabLine" })
+--     vim.api.nvim_set_hl(0, "MiniTablineModifiedCurrent", { link = "TabLineSel" })
+--     vim.api.nvim_set_hl(0, "MiniTablineModifiedVisible", { link = "TabLine" })
+--     vim.api.nvim_set_hl(0, "MiniTablineModifiedHidden", { link = "TabLine" })
+--     vim.api.nvim_set_hl(0, "MiniTablineFill", { link = "TabLineFill" })
+--     vim.api.nvim_set_hl(0, "MiniTablineTabpagesection", { link = "TabLine" })
+--   end,
+-- })

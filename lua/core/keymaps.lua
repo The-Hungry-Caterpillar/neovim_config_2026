@@ -125,11 +125,11 @@ nmap("<leader>s=", "<C-w>=", "Split: equalize")
 -- Insert a divider line to 79 columns with Ctrl+L (insert mode)
 imap("<C-l>", function()
   local col = vim.fn.col(".")
-  local width = 79
+  local width = 80
   if col < width then
     vim.api.nvim_put({ string.rep("-", width - col + 1) }, "c", true, true)
   end
-end, "Insert divider to 79 columns")
+end, "Insert divider to 80 columns")
 
 -- j/k move through wrapped display lines when no count is given
 nmap("j", function()

@@ -1,9 +1,9 @@
 return{
   "lukas-reineke/virt-column.nvim",
   opts = {
-    -- char = "│",
-    char = "┆",
-    virtcolumn = "80",
+    char = "│",
+    -- char = "┆",
+    virtcolumn = "81",
   },
 }
 

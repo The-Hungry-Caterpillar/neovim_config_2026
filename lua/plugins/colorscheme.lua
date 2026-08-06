@@ -23,7 +23,7 @@ return {
     lazy   = false,
     config = function()
       require("dracula").setup({
-        transparent_bg = true
+        transparent_bg = false
       })
       -- vim.cmd.colorscheme("dracula")
     end,
@@ -31,7 +31,6 @@ return {
 
   { -- Evergarden
     "everviolet/nvim",
-    enable = false,
     lazy   = false,
     config = function()
       require('evergarden').setup({
@@ -40,7 +39,7 @@ return {
           accent = 'green',
         },
         editor = {
-          transparent_background = true,
+          transparent_background = false,
         },
       })
       -- vim.cmd.colorscheme("evergarden")
@@ -49,14 +48,13 @@ return {
 
   { -- Solarized
     "craftzdog/solarized-osaka.nvim",
-    enabled         = true,
     lazy            = false,
     priority        = 1000,
     config          = function()
       require("solarized-osaka").setup({
         transparent = false
       })
-      vim.cmd.colorscheme("solarized-osaka")
+      -- vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
@@ -66,18 +64,17 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g.srcery_background = "NONE"
+      -- vim.g.srcery_background = "NONE"
       -- vim.cmd.colorscheme("srcery")
     end,
   },
 
   { -- Tokyonight
     "folke/tokyonight.nvim",
-    enabled       = false,
     lazy          = false,
     priority      = 1000,
     opts          = {
-      transparent = true,
+      transparent = false,
     },
     config        = function(_, opts)
       require("tokyonight").setup(opts)
@@ -88,11 +85,10 @@ return {
 
   { -- Witch
       "sontungexpt/witch",
-      enabled  = false,
       priority = 1000,
       lazy     = false,
       config   = function(_, opts)
-          require("witch").setup(opts)
+          -- require("witch").setup(opts)
       end,
   },
 
