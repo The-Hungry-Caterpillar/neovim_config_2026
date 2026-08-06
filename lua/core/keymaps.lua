@@ -218,15 +218,24 @@ nmap("<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", "Tmux: previous pane", { silent 
 vim.keymap.set("n", "<leader>xj", vim.diagnostic.goto_next, {
   desc = "Next diagnostic",
 })
+
 vim.keymap.set("n", "<leader>xk", vim.diagnostic.goto_prev, {
   desc = "Previous diagnostic",
 })
+
 vim.keymap.set("n", "<leader>xd", vim.diagnostic.setloclist, {
   desc = "Diagnostics list",
 })
+
 vim.keymap.set("n", "<leader>xl", function()
   vim.diagnostic.open_float({
     border = "rounded",
     source = "if_many",
   })
 end, { desc = "Line diagnostics" })
+
+vim.keymap.set("n", "<leader>xf", function()
+  vim.lsp.buf.hover({
+    border = "rounded",
+  })
+end, { desc = "Function information", })
