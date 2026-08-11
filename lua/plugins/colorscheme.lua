@@ -5,7 +5,7 @@ return {
     lazy     = false,
     priority = 1000,
     config   = function()
-      vim.cmd.colorscheme("darkvoid")
+      -- vim.cmd.colorscheme("darkvoid")
     end,
   },
 
@@ -46,6 +46,20 @@ return {
     end,
   },
 
+  {
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000 ,
+    config   = true,
+    opts     = {
+      transparent_mode = true,
+    },
+    config   = function(_, opts)
+      require("gruvbox").setup(opts)
+      -- vim.cmd.colorscheme("gruvbox")
+    end,
+  },
+
+
   { -- Solarized
     "craftzdog/solarized-osaka.nvim",
     lazy            = false,
@@ -54,7 +68,7 @@ return {
       require("solarized-osaka").setup({
         transparent = false
       })
-      -- vim.cmd.colorscheme("solarized-osaka")
+      vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
