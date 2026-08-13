@@ -1,5 +1,12 @@
 return {
 
+  {
+    "Shatur/neovim-ayu",
+    lazy = false,
+    priority = 1000
+  },
+
+
   { -- Darkvoid
     'aliqyan-21/darkvoid.nvim',
     lazy     = false,
@@ -46,7 +53,7 @@ return {
     end,
   },
 
-  {
+  { -- Gruvbox
     "ellisonleao/gruvbox.nvim",
     priority = 1000 ,
     config   = true,
@@ -59,6 +66,15 @@ return {
     end,
   },
 
+  { -- Moonfly
+    "bluz71/vim-moonfly-colors",
+    name = "moonfly",
+    lazy = false,
+    priority = 1000,
+    config   = function()
+      vim.cmd.colorscheme("moonfly")
+    end
+  },
 
   { -- Solarized
     "craftzdog/solarized-osaka.nvim",
@@ -68,7 +84,7 @@ return {
       require("solarized-osaka").setup({
         transparent = false
       })
-      vim.cmd.colorscheme("solarized-osaka")
+      -- vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
@@ -95,15 +111,6 @@ return {
       -- vim.cmd.colorscheme("tokyonight-moon")
       -- vim.cmd.colorscheme("tokyonight-day")
     end,
-  },
-
-  { -- Witch
-      "sontungexpt/witch",
-      priority = 1000,
-      lazy     = false,
-      config   = function(_, opts)
-          -- require("witch").setup(opts)
-      end,
   },
 
   { -- Yoda

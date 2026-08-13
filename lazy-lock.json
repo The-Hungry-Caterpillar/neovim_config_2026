@@ -14,7 +14,9 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "67029ccdac1ef8941e13b826417bc0ffac24cc86" },
   "mason.nvim": { "branch": "main", "commit": "2a6940af80375532e5e9e7c1f2fc6319a1b7a69d" },
   "mini.nvim": { "branch": "main", "commit": "bcb4b2688b38f5c48ada025abe130d41840e11d5" },
+  "moonfly": { "branch": "master", "commit": "261664f92ed51cf0c077555b2d4b2530307eac17" },
   "neoscroll.nvim": { "branch": "master", "commit": "c8d29979cb0cb3a2437a8e0ae683fd82f340d3b8" },
+  "neovim-ayu": { "branch": "master", "commit": "e5a9f0fa2918d6b5f57c21b3ac014314ee5e41c8" },
   "nvim": { "branch": "main", "commit": "6a47a90e5caf1b21e54ff7967017c255bab80fdd" },
   "nvim-cmp": { "branch": "main", "commit": "2ffe79f1f021def8dd1fcd81deb16f1bb0d989f3" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "72a05f62c52241bc7441c820eb53946f92b2e6a4" },
@@ -26,6 +28,5 @@
   "tokyonight.nvim": { "branch": "main", "commit": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6" },
   "vim-tmux-navigator": { "branch": "master", "commit": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432" },
   "virt-column.nvim": { "branch": "master", "commit": "b87e3e0864211a32724a2ebf3be37e24e9e2fa99" },
-  "witch": { "branch": "main", "commit": "b943dd5397b7fd0216d7143f16a3a202ff64b5d3" },
   "yoda.nvim": { "branch": "main", "commit": "266dd6e4f3ff500ebf6b58e7618b73ffde79f1c1" }
 }
