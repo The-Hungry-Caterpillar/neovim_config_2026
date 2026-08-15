@@ -1,11 +1,5 @@
 return {
 
-  {
-    "Shatur/neovim-ayu",
-    lazy = false,
-    priority = 1000
-  },
-
 
   { -- Darkvoid
     'aliqyan-21/darkvoid.nvim',
@@ -111,6 +105,14 @@ return {
       -- vim.cmd.colorscheme("tokyonight-moon")
       -- vim.cmd.colorscheme("tokyonight-day")
     end,
+  },
+
+  { -- VSCode
+      "askfiy/visual_studio_code",
+      priority = 100,
+      config = function()
+          vim.cmd([[colorscheme visual_studio_code]])
+      end,
   },
 
   { -- Yoda
