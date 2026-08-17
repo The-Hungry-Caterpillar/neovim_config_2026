@@ -1,6 +1,5 @@
 return {
 
-
   { -- Darkvoid
     'aliqyan-21/darkvoid.nvim',
     lazy     = false,
