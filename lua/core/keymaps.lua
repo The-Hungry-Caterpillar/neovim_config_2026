@@ -188,9 +188,9 @@ end, "LazyGit")
 
 -- mini.nvim integrations  -----------------------------------------------------
 
-nmap("<leader>e", function()
-  require("mini.files").open(vim.fn.getcwd())
-end, "Explorer")
+vim.keymap.set("n", "<leader>e", function()
+  MiniFiles.open(vim.fn.getcwd(), false)
+end, { desc = "Open MiniFiles at cwd" })
 
 nmap("<leader>n", function()
   -- require("mini.files").open(vim.env.HOME .. "/notes/running_notes.md")
