@@ -5,7 +5,7 @@ return {
     lazy     = false,
     priority = 1000,
     config   = function()
-      -- vim.cmd.colorscheme("darkvoid")
+      vim.cmd.colorscheme("darkvoid")
     end,
   },
 
@@ -65,7 +65,7 @@ return {
     lazy = false,
     priority = 1000,
     config   = function()
-      vim.cmd.colorscheme("moonfly")
+      -- vim.cmd.colorscheme("moonfly")
     end
   },
 
@@ -109,8 +109,12 @@ return {
   { -- VSCode
       "askfiy/visual_studio_code",
       priority = 100,
-      config = function()
-          vim.cmd([[colorscheme visual_studio_code]])
+      opts = {
+        transparent = false
+      },
+      config = function(_, opts)
+        require("visual_studio_code").setup(opts)
+          -- vim.cmd.colorscheme("visual_studio_code")
       end,
   },
 

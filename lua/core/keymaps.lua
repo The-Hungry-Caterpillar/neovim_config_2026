@@ -37,10 +37,6 @@ nmap("<leader>ww", "<cmd>wa<CR>", "Save file")
 nmap("<leader>wq", "<cmd>wqa<CR>", "Save file and quit")
 nmap("<leader>qq", "<cmd>qa!<CR>", "Force quit")
 
--- Switch directions of paragraph scrolling
-vim.keymap.set({'n', 'v'}, '{', '}', { noremap = true })
-vim.keymap.set({'n', 'v'}, '}', '{', { noremap = true })
-
 -- Move by visual lines when wrapping
 vim.keymap.set("n", "j", "gj", { silent = true })
 vim.keymap.set("n", "k", "gk", { silent = true })
