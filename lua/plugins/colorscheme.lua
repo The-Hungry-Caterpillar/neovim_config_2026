@@ -5,7 +5,7 @@ return {
     lazy     = false,
     priority = 1000,
     config   = function()
-      vim.cmd.colorscheme("darkvoid")
+      -- vim.cmd.colorscheme("darkvoid")
     end,
   },
 
@@ -25,7 +25,7 @@ return {
       require("dracula").setup({
         transparent_bg = false
       })
-      -- vim.cmd.colorscheme("dracula")
+      vim.cmd.colorscheme("dracula")
     end,
   },
 

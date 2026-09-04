@@ -106,6 +106,22 @@ return {
         },
 
         {
+          prefix = "T",
+          body = {
+            "TRUE${0}"
+          },
+          desc = "boolean true"
+        },
+
+        {
+          prefix = "F",
+          body = {
+            "FALSE${0}"
+          },
+          desc = "boolean false"
+        },
+
+        {
           prefix = "run_limma",
           body = {
             "run_limma(",
