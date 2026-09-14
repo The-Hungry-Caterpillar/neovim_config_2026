@@ -287,17 +287,12 @@ return {
     starter.setup({
       evaluate_single = false,
 
-      footer = function()
-        local w = vim.o.columns
-        local base = vim.fn.stdpath("config") .. "/ascii/"
-
-        if w > 90 then
-          return read_lines(base .. "dragon.txt")
-        else
-          return read_lines(base .. "dragon.txt")
-          -- return read_lines(base .. "calm.txt")
-        end
-      end,
+      footer = "",
+      -- footer = function()
+      --   local w = vim.o.columns
+      --   local base = vim.fn.stdpath("config") .. "/ascii/"
+      --   return read_lines(base .. "simple.txt")
+      -- end,
 
       items = {
         starter.sections.builtin_actions(),
