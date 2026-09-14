@@ -5,36 +5,82 @@ return {
 
     ---------------------------------------------------------------------------
     -- Commenting
+    ---------------------------------------------------------------------------
     require("mini.comment").setup({
       options = {
         custom_commentstring = nil, -- let treesitter decide
       },
     })
 
+
+    ---------------------------------------------------------------------------
+    -- Align
     ---------------------------------------------------------------------------
     require("mini.align").setup()
 
+
     ---------------------------------------------------------------------------
     -- Statusline
-    require("mini.statusline").setup({
-      use_icons = true, -- safer across fonts/terminals
+    ---------------------------------------------------------------------------
+    local statusline = require("mini.statusline")
+
+    statusline.setup({
+      use_icons = true,
       set_vim_settings = true,
+
+      content = {
+        active = function()
+          local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
+          local git           = statusline.section_git({ trunc_width = 40 })
+          local diff          = statusline.section_diff({ trunc_width = 75 })
+          local diagnostics   = statusline.section_diagnostics({ trunc_width = 75 })
+          local lsp           = statusline.section_lsp({ trunc_width = 75 })
+          local filename      = statusline.section_filename({ trunc_width = 140 })
+          local fileinfo      = statusline.section_fileinfo({ trunc_width = 120 })
+          local location      = statusline.section_location({ trunc_width = 75 })
+          local search        = statusline.section_searchcount({ trunc_width = 75 })
+
+          local recording = vim.fn.reg_recording()
+          if recording ~= "" then
+            recording = "󰑋 REC @" .. recording
+          end
+
+          return statusline.combine_groups({
+            { hl = mode_hl,                 strings = { mode } },
+            { hl = "MiniStatuslineDevinfo", strings = { recording, git, diff, diagnostics, lsp } },
+
+            "%<",
+
+            { hl = "MiniStatuslineFilename", strings = { filename } },
+
+            "%=",
+
+            { hl = "MiniStatuslineFileinfo", strings = { fileinfo } },
+            { hl = mode_hl,                 strings = { search, location } },
+          })
+        end,
+      },
     })
+
 
     ---------------------------------------------------------------------------
     -- Buffer removal without killing windows
+    ---------------------------------------------------------------------------
     require("mini.bufremove").setup({
       silent = true,
     })
 
+
     ---------------------------------------------------------------------------
     -- Tabs
+    ---------------------------------------------------------------------------
     if vim.opt.showtabline:get() > 0 then
       require("mini.tabline").setup()
     end
 
     ---------------------------------------------------------------------------
     -- Snippets
+    ---------------------------------------------------------------------------
     local snippets = require("mini.snippets")
 
     snippets.setup({
@@ -150,10 +196,13 @@ return {
 
     ---------------------------------------------------------------------------
     -- Icons
+    ---------------------------------------------------------------------------
     require("mini.icons").setup()
+
 
     ---------------------------------------------------------------------------
     -- Clue
+    ---------------------------------------------------------------------------
     require("mini.clue").setup({
       triggers = {
         -- Leader
@@ -196,6 +245,7 @@ return {
 
     ---------------------------------------------------------------------------
     -- Autopairs
+    ---------------------------------------------------------------------------
     require("mini.pairs").setup({
       modes = { insert = true, command = false, terminal = false },
       skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
@@ -204,8 +254,10 @@ return {
       markdown = true,
     })
 
+
     ---------------------------------------------------------------------------
     -- Mini-files
+    ---------------------------------------------------------------------------
     require("mini.files").setup({
       windows = {
         preview = true,
@@ -222,15 +274,19 @@ return {
       },
     })
 
+
     ---------------------------------------------------------------------------
     -- Mini fuzzy finder
+    ---------------------------------------------------------------------------
     require("mini.pick").setup()
     vim.keymap.set("n", "<leader><space>", function()
       require("mini.pick").builtin.files()
     end, { desc = "Fuzzy finder" })
 
+
     ---------------------------------------------------------------------------
     -- Indent scope
+    ---------------------------------------------------------------------------
     require("mini.indentscope").setup({
       symbol = "▏",
       -- symbol = "·",
@@ -241,8 +297,10 @@ return {
       },
     })
 
+
     ---------------------------------------------------------------------------
     -- Minimap
+    ---------------------------------------------------------------------------
     local map = require("mini.map")
 
     map.setup({
@@ -274,25 +332,18 @@ return {
     --     MiniMap.open()
     --   end,
     -- })
+    --
+
 
     ---------------------------------------------------------------------------
     -- Starter
+    ---------------------------------------------------------------------------
     local starter = require("mini.starter")
-
-    local function read_lines(path)
-      local lines = vim.fn.readfile(path)
-      return table.concat(lines, "\n")
-    end
 
     starter.setup({
       evaluate_single = false,
 
       footer = "",
-      -- footer = function()
-      --   local w = vim.o.columns
-      --   local base = vim.fn.stdpath("config") .. "/ascii/"
-      --   return read_lines(base .. "simple.txt")
-      -- end,
 
       items = {
         starter.sections.builtin_actions(),
