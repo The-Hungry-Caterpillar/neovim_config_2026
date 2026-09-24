@@ -65,9 +65,9 @@ return {
     })
 
     cmp.setup.filetype("markdown", {
-      completion = {
-        autocomplete = false
-      }
+      sources = {
+        { name = "path" },
+      },
     })
 
   end,
