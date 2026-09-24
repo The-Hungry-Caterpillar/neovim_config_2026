@@ -25,7 +25,7 @@ return {
       require("dracula").setup({
         transparent_bg = false
       })
-      vim.cmd.colorscheme("dracula")
+      -- vim.cmd.colorscheme("dracula")
     end,
   },
 
@@ -51,7 +51,7 @@ return {
     priority = 1000 ,
     config   = true,
     opts     = {
-      transparent_mode = true,
+      transparent_mode = false,
     },
     config   = function(_, opts)
       require("gruvbox").setup(opts)
@@ -77,7 +77,7 @@ return {
       require("solarized-osaka").setup({
         transparent = false
       })
-      -- vim.cmd.colorscheme("solarized-osaka")
+      vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },

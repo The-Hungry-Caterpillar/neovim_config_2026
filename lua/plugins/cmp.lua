@@ -11,7 +11,7 @@ return {
     cmp.setup({
 
       mapping = cmp.mapping.preset.insert({
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm({ select = false }),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if MiniSnippets.session.get() then
