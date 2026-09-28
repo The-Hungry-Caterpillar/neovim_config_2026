@@ -1,11 +1,27 @@
 return {
 
+  { -- Binary
+    "jackplus-xyz/binary.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("binary").setup({
+        colors = {
+          -- bg = "#4FC3FF", -- blue
+          bg = "#66FF66", -- CRT green
+          fg = "#000000",
+        },
+      })
+      -- vim.cmd.colorscheme("binary")
+    end,
+  },
+
   { -- Darkvoid
     'aliqyan-21/darkvoid.nvim',
     lazy     = false,
     priority = 1000,
     config   = function()
-      -- vim.cmd.colorscheme("darkvoid")
+      vim.cmd.colorscheme("darkvoid")
     end,
   },
 
@@ -46,19 +62,6 @@ return {
     end,
   },
 
-  { -- Gruvbox
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000 ,
-    config   = true,
-    opts     = {
-      transparent_mode = false,
-    },
-    config   = function(_, opts)
-      require("gruvbox").setup(opts)
-      -- vim.cmd.colorscheme("gruvbox")
-    end,
-  },
-
   { -- Moonfly
     "bluz71/vim-moonfly-colors",
     name = "moonfly",
@@ -69,13 +72,13 @@ return {
     end
   },
 
-  {
+  { -- Oldworld
     "dgox16/oldworld.nvim",
     lazy = false,
     priority = 1000,
     config = function()
       require("oldworld").setup({})
-      vim.cmd.colorscheme("oldworld")
+      -- vim.cmd.colorscheme("oldworld")
     end
   },
 
