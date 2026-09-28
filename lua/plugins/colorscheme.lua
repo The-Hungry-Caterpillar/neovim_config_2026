@@ -69,15 +69,25 @@ return {
     end
   },
 
+  {
+    "dgox16/oldworld.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("oldworld").setup({})
+      vim.cmd.colorscheme("oldworld")
+    end
+  },
+
   { -- Solarized
     "craftzdog/solarized-osaka.nvim",
     lazy            = false,
     priority        = 1000,
     config          = function()
       require("solarized-osaka").setup({
-        transparent = true
+        transparent = false
       })
-      vim.cmd.colorscheme("solarized-osaka")
+      -- vim.cmd.colorscheme("solarized-osaka")
       -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
