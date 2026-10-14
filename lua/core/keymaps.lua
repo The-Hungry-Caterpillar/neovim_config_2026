@@ -55,8 +55,8 @@ nmap("<C-u>", "<C-u>zz", "Half-page up (center)")
 imap("jj", " |>", "Insert pipe (R)")
 
 -- Keep cursor centered when moving through search results
-nmap("N", "Nzzzv", "Search previous (center)")
-nmap("n", "nzzzv", "Search next (center)")
+nmap("N", "Nzt", "Search previous (center)")
+nmap("n", "nzt", "Search next (center)")
 
 -- Move through buffers
 -- nmap("<leader>l", ":bnext<CR>", "Next buffer")

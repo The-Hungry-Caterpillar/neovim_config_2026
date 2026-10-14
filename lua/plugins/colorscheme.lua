@@ -21,7 +21,7 @@ return {
     lazy     = false,
     priority = 1000,
     config   = function()
-      vim.cmd.colorscheme("darkvoid")
+      -- vim.cmd.colorscheme("darkvoid")
     end,
   },
 
@@ -72,6 +72,12 @@ return {
     end
   },
 
+  { --mrkn256
+    "mrkn/mrkn256.vim",
+    lazy = false,
+    priority = 1000
+  },
+
   { -- Oldworld
     "dgox16/oldworld.nvim",
     lazy = false,
@@ -119,6 +125,17 @@ return {
     end,
   },
 
+  { -- Vercel
+    "PunGrumpy/vercel.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function(_, opts)
+      require("vercel").setup(opts)
+        -- vim.cmd.colorscheme("vercel")
+    end,
+  },
+
   { -- VSCode
       "askfiy/visual_studio_code",
       priority = 100,
@@ -129,19 +146,6 @@ return {
         require("visual_studio_code").setup(opts)
           -- vim.cmd.colorscheme("visual_studio_code")
       end,
-  },
-
-  { -- Yoda
-    "kuri-sun/yoda.nvim",
-    lazy     = false,
-    priority = 1000,
-    opts     = {
-      theme = "dark", -- "dark" or "light"
-      transparent_background = false
-    },
-    config   = function(_, opts)
-      -- require("yoda").setup(opts)
-    end
   },
 
 }
