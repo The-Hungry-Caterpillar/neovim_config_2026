@@ -199,6 +199,10 @@ nmap("<leader>d", function()
   require("mini.bufremove").delete()
 end, "Delete buffer")
 
+vim.keymap.set("n", "<leader><space>", function()
+  require("mini.pick").builtin.files()
+end, { desc = "Fuzzy finder" })
+
 
 -- Tmux navigator -------------------------------------------------------------
 
