@@ -34,7 +34,7 @@ end
 
 imap("jk", "<Esc>", "Escape insert mode")
 nmap("<leader>ww", "<cmd>wa<CR>", "Save file")
-nmap("<leader>wq", "<cmd>wqa<CR>", "Save file and quit")
+nmap("<leader>wq", "<cmd>wqa!<CR>", "Save file and quit")
 nmap("<leader>qq", "<cmd>qa!<CR>", "Force quit")
 
 -- Move by visual lines when wrapping

@@ -32,15 +32,15 @@ local function toggle_terminal()
   vim.cmd("startinsert")
 end
 
-vim.keymap.set({ "n", "t" }, "<leader>tt", toggle_terminal, {
+vim.keymap.set("n", "<leader>tt", toggle_terminal, {
   desc = "Toggle terminal",
 })
 
--- vim.keymap.set("t", "<Esc>", function()
---   if terminal_win and vim.api.nvim_win_is_valid(terminal_win) then
---     vim.api.nvim_win_close(terminal_win, true)
---     terminal_win = nil
---   end
--- end, {
---   desc = "Hide terminal",
--- })
+vim.keymap.set("t", "<Esc>", function()
+  if terminal_win and vim.api.nvim_win_is_valid(terminal_win) then
+    vim.api.nvim_win_close(terminal_win, true)
+    terminal_win = nil
+  end
+end, {
+  desc = "Hide terminal",
+})
