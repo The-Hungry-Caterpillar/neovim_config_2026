@@ -41,7 +41,7 @@ return {
       require("dracula").setup({
         transparent_bg = false
       })
-      vim.cmd.colorscheme("dracula")
+      -- vim.cmd.colorscheme("dracula")
     end,
   },
 
@@ -132,7 +132,7 @@ return {
     opts = {},
     config = function(_, opts)
       require("vercel").setup(opts)
-        -- vim.cmd.colorscheme("vercel")
+        vim.cmd.colorscheme("vercel")
     end,
   },
 
