@@ -62,6 +62,15 @@ return {
     end,
   },
 
+  { -- Iceberg
+    "cocopon/iceberg.vim",
+    lazy = false,
+    priority = 1000,
+    config   = function()
+      vim.cmd.colorscheme("iceberg")
+    end
+  },
+
   { -- Moonfly
     "bluz71/vim-moonfly-colors",
     name = "moonfly",
@@ -70,12 +79,6 @@ return {
     config   = function()
       -- vim.cmd.colorscheme("moonfly")
     end
-  },
-
-  { --mrkn256
-    "mrkn/mrkn256.vim",
-    lazy = false,
-    priority = 1000
   },
 
   { -- Oldworld
@@ -132,7 +135,7 @@ return {
     opts = {},
     config = function(_, opts)
       require("vercel").setup(opts)
-        vim.cmd.colorscheme("vercel")
+        -- vim.cmd.colorscheme("vercel-dark")
     end,
   },
 

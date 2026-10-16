@@ -3,13 +3,23 @@ local snippets = require("mini.snippets")
 snippets.setup({
   snippets = {
     {
-      prefix = "head",
+      prefix = "big header",
       body = {
-        "# ------------------------------------------------------------------------------",
+        "# ==============================================================================",
         "# ${1:Insert here}",
-        "# ------------------------------------------------------------------------------",
+        "# =============================================================================="
       },
-      desc = "Section divider",
+      desc = "Big section divider",
+    },
+
+    {
+      prefix = "small header",
+      body = {
+        "# ------------------------------------------------------------------",
+        "# ${1:Insert here}",
+        "# ------------------------------------------------------------------",
+      },
+      desc = "Small section divider",
     },
 
     {
@@ -108,4 +118,13 @@ snippets.setup({
     },
   }
 })
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    if MiniSnippets.session.get() then
+      MiniSnippets.session.stop()
+    end
+  end,
+})
+
 MiniSnippets.start_lsp_server({ match = false })

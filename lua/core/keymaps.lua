@@ -239,3 +239,27 @@ vim.keymap.set("n", "<leader>xf", function()
     border = "rounded",
   })
 end, { desc = "Function information", })
+
+-- Wrap lines in R
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    if vim.bo[args.buf].filetype ~= "r" then
+      return
+    end
+
+    vim.bo[args.buf].textwidth = 80
+    vim.bo[args.buf].formatexpr = ""
+
+    vim.keymap.set("n", "K", function()
+      -- Only operate on comments
+      if not vim.api.nvim_get_current_line():match("^%s*#") then
+        return
+      end
+
+      vim.cmd("normal! gqq")
+    end, {
+      buffer = args.buf,
+      desc = "Wrap R comment to 80 columns",
+    })
+  end,
+})

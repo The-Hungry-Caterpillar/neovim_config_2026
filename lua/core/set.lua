@@ -127,3 +127,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 vim.cmd.colorscheme("industry")
+vim.api.nvim_set_hl(0, "CursorLine", {
+  bg = "#202020",
+})
+
