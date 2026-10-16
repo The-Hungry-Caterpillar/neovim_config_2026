@@ -1,5 +1,6 @@
 return {
 
+  { import = "plugins.barbar"        },
   { import = "plugins.cmp"           },
   { import = "plugins.colorizer"     },
   { import = "plugins.colorscheme"   },

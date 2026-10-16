@@ -7,12 +7,10 @@ return {
     config = function()
       require("binary").setup({
         colors = {
-          -- bg = "#4FC3FF", -- blue
           bg = "#66FF66", -- CRT green
           fg = "#000000",
         },
       })
-      -- vim.cmd.colorscheme("binary")
     end,
   },
 
@@ -20,28 +18,22 @@ return {
     'aliqyan-21/darkvoid.nvim',
     lazy     = false,
     priority = 1000,
-    config   = function()
-      -- vim.cmd.colorscheme("darkvoid")
-    end,
   },
 
   { -- Deepwhite
     'Verf/deepwhite.nvim',
     lazy     = false,
     priority = 1000,
-    config   = function()
-      -- vim.cmd.colorscheme("deepwhite")
-    end,
   },
 
   { -- Dracula
     "Mofiqul/dracula.nvim",
     lazy   = false,
+    priority = 1000,
     config = function()
       require("dracula").setup({
         transparent_bg = false
       })
-      -- vim.cmd.colorscheme("dracula")
     end,
   },
 
@@ -58,37 +50,20 @@ return {
           transparent_background = false,
         },
       })
-      -- vim.cmd.colorscheme("evergarden")
     end,
-  },
-
-  { -- Iceberg
-    "cocopon/iceberg.vim",
-    lazy = false,
-    priority = 1000,
-    config   = function()
-      vim.cmd.colorscheme("iceberg")
-    end
   },
 
   { -- Moonfly
     "bluz71/vim-moonfly-colors",
     name = "moonfly",
     lazy = false,
-    priority = 1000,
-    config   = function()
-      -- vim.cmd.colorscheme("moonfly")
-    end
+    priority = 1000
   },
 
   { -- Oldworld
     "dgox16/oldworld.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      require("oldworld").setup({})
-      -- vim.cmd.colorscheme("oldworld")
-    end
   },
 
   { -- Solarized
@@ -99,8 +74,6 @@ return {
       require("solarized-osaka").setup({
         transparent = false
       })
-      -- vim.cmd.colorscheme("solarized-osaka")
-      -- vim.cmd.colorscheme("solarized-osaka-day")
     end
   },
 
@@ -108,10 +81,6 @@ return {
     "srcery-colors/srcery-vim",
     lazy = false,
     priority = 1000,
-    config = function()
-      -- vim.g.srcery_background = "NONE"
-      -- vim.cmd.colorscheme("srcery")
-    end,
   },
 
   { -- Tokyonight
@@ -123,8 +92,6 @@ return {
     },
     config        = function(_, opts)
       require("tokyonight").setup(opts)
-      -- vim.cmd.colorscheme("tokyonight-moon")
-      -- vim.cmd.colorscheme("tokyonight-day")
     end,
   },
 
@@ -135,7 +102,6 @@ return {
     opts = {},
     config = function(_, opts)
       require("vercel").setup(opts)
-        -- vim.cmd.colorscheme("vercel-dark")
     end,
   },
 

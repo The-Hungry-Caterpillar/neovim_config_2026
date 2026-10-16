@@ -7,5 +7,6 @@ require("core.keymaps")
 require("core.set")
 require("core.lazy")
 require("core.terminal")
--- require("core.highlights")
 require("core.highlights_minimal")
+
+vim.cmd.colorscheme("tokyonight")

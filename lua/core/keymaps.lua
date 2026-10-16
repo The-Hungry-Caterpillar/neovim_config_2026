@@ -144,10 +144,6 @@ vim.api.nvim_create_user_command('ToggleBackground', function()
     vim.o.background = 'dark'
   end
 end, {})
-vim.keymap.set(
-  'n', '<leader>bd', '<cmd>ToggleBackground<cr>',
-  { desc = 'Toggle background' }
-)
 
 
 -- Git / tools ----------------------------------------------------------------
@@ -194,10 +190,6 @@ nmap("<leader>n", function()
   vim.opt.number = not vim.opt.number:get()
   vim.opt.relativenumber = not vim.opt.relativenumber:get()
 end, "Notes")
-
-nmap("<leader>d", function()
-  require("mini.bufremove").delete()
-end, "Delete buffer")
 
 vim.keymap.set("n", "<leader><space>", function()
   require("mini.pick").builtin.files()

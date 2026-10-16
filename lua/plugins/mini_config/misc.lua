@@ -21,14 +21,10 @@ require("mini.comment").setup({
   },
 })
 
-require("mini.bufremove").setup({
-  silent = true,
-})
-
 require("mini.pick").setup()
 
 require("mini.align").setup()
 
-require("mini.tabline").setup()
+-- require("mini.tabline").setup()
 
 require("mini.icons").setup()
