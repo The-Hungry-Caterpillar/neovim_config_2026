@@ -26,7 +26,7 @@ snippets.setup({
       prefix = "png",
       body = {
         'png(',
-        '  filename = "${1}",',
+        '  filename = glue("${1}"),',
         "  height   = ${2},",
         "  width    = ${3},",
         '  units    = "in",',
@@ -91,6 +91,14 @@ snippets.setup({
         "FALSE${0}"
       },
       desc = "boolean false"
+    },
+
+    {
+      prefix = "dir",
+      body = {
+        "dir.create(${1}, showWarnings = FALSE, recursive = TRUE)"
+      },
+      desc = "create directory"
     },
 
     {
