@@ -9,4 +9,4 @@ require("core.lazy")
 require("core.terminal")
 require("core.highlights_minimal")
 
-vim.cmd.colorscheme("vercel-light")
+vim.cmd.colorscheme("kanagawa")

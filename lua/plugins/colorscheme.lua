@@ -1,27 +1,7 @@
 return {
 
-  { -- Binary
-    "jackplus-xyz/binary.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("binary").setup({
-        colors = {
-          bg = "#66FF66", -- CRT green
-          fg = "#000000",
-        },
-      })
-    end,
-  },
-
   { -- Darkvoid
     'aliqyan-21/darkvoid.nvim',
-    lazy     = false,
-    priority = 1000,
-  },
-
-  { -- Deepwhite
-    'Verf/deepwhite.nvim',
     lazy     = false,
     priority = 1000,
   },
@@ -37,20 +17,10 @@ return {
     end,
   },
 
-  { -- Evergarden
-    "everviolet/nvim",
-    lazy   = false,
-    config = function()
-      require('evergarden').setup({
-        theme = {
-          variant = 'fall',
-          accent = 'green',
-        },
-        editor = {
-          transparent_background = false,
-        },
-      })
-    end,
+  { -- Kanagawa
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
   },
 
   { -- Moonfly
@@ -64,17 +34,6 @@ return {
     "dgox16/oldworld.nvim",
     lazy = false,
     priority = 1000,
-  },
-
-  { -- Solarized
-    "craftzdog/solarized-osaka.nvim",
-    lazy            = false,
-    priority        = 1000,
-    config          = function()
-      require("solarized-osaka").setup({
-        transparent = false
-      })
-    end
   },
 
   { -- Srcy
@@ -103,18 +62,6 @@ return {
     config = function(_, opts)
       require("vercel").setup(opts)
     end,
-  },
-
-  { -- VSCode
-      "askfiy/visual_studio_code",
-      priority = 100,
-      opts = {
-        transparent = false
-      },
-      config = function(_, opts)
-        require("visual_studio_code").setup(opts)
-          -- vim.cmd.colorscheme("visual_studio_code")
-      end,
   },
 
 }
